@@ -1,7 +1,12 @@
-/*
- * Главный файл стилей.
- * Все паршалы подключаются сюда.
- */
+//  Переменные, миксины, плейсхолдеры
+@import './utils/variables';
+@import './utils/breakpoints';
 
-// Стили для файла с примером HTML-фрагмента
-@import './example';
+// Basic styles
+@import './base/base';
+@import './base/fonts';
+@import './base/container';
+
+// Sections
+@import './layouts/header';
+@import './layouts/footer';
