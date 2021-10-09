@@ -1,0 +1,94 @@
+.footer {
+  background-color: $secondary-background-color;
+  padding-right: 36px;
+  padding-left: 48px;
+  text-align: center;
+  min-width: $mobile;
+  // temporary solution to push the footer to the bottom until we add content
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+
+  @media screen and (max-width: $to-tablet) {
+    padding-top: 29px;
+    padding-bottom: 30px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    padding-top: 30px;
+    padding-bottom: 28px;
+    // temporary solution to push the footer to the bottom until we add content
+    height: 76px;
+  }
+}
+
+.copyright {
+  display: block;
+
+  @media screen and (max-width: $to-tablet) {
+    margin-bottom: 10px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    display: inline-block;
+  }
+}
+
+.footer__text {
+  color: $footer-text-color;
+  font-family: $font-family;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.14;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 16px;
+    line-height: 1.187;
+  }
+}
+
+.footer__link {
+  text-decoration: underline;
+}
+
+.footer__link:hover,
+.footer__link:focus {
+  color: $accent-color;
+  transition: $transition-duration $timing-function;
+}
+
+.heart-icon {
+  animation: heartbeat;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: $timing-function;
+
+  &:hover,
+  &:focus {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(0.75);
+  }
+  20% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(0.75);
+  }
+  60% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(0.75);
+  }
+  100% {
+    transform: scale(0.75);
+  }
+}
