@@ -1,16 +1,25 @@
 import { getSearchedMovies } from '../api/movies-api';
 import debounce from 'lodash.debounce';
+import movieCardsTpl from '../../templates/movie-card.hbs';
 
-const { log } = console;
+const refs = {
+    inputField: document.querySelector('.js-search-form'),
+    outputField: document.querySelector('#gallery')
+}
 
-document.querySelector('.js-search-form').addEventListener('input', debounce(onFilterChange, 500));
+// const { log } = console;
+
+refs.inputField.addEventListener('input', debounce(onFilterChange, 500));
 
 function onFilterChange(e) {
-    log(e.target.value.toLowerCase())
+    const inputValue = e.target.value.toLowerCase().trim();
+    if (!inputValue) return;
     try {
-        getSearchedMovies(e.target.value.toLowerCase())
+        getSearchedMovies(inputValue)
             .then(data => {
-                log(data);
+                // log(data.results);
+                const markUp = movieCardsTpl(data.results)
+                refs.outputField.innerHTML = markUp;
             })
     } catch (e) {
         log('error', e);
@@ -18,4 +27,3 @@ function onFilterChange(e) {
         // block finally
     }   
 }
-
