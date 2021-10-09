@@ -1,0 +1,101 @@
+.header {
+  min-width: 100%;
+  height: 230px;
+
+  background-image: url('../images/header-bg/header-background-mobile@1x.jpg');
+  // background: rgba(0, 0, 0, 0.56);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @media screen and (max-width: $to-tablet) {
+    background-image: url('../images/header-bg/header-background-mobile@1x.jpg');
+  }
+
+  // @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  //   @media screen and (max-width: $to-tablet) {
+  //     background-image: url('../images/header-bg/header-background-mobile@2x.jpg');
+  //   }
+  // }
+
+  @media screen and(min-width: $tablet) {
+    background-image: l url('../images/header-bg/header-background-tablet@1x.jpg');
+  }
+
+  @media screen and(min-width: $desktop) {
+    background-image: url('../images/header-bg/header-background-desktop@2x.jpg');
+  }
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.header-nav__list {
+  line-height: 1.17;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: $white-text-color;
+
+  margin-top: 58px;
+  border-bottom: 3px solid $accent-color;
+}
+
+.header-nav__list:not(:last-child) {
+  margin-right: 39px;
+}
+
+.logo__name {
+  display: none;
+}
+
+.logo__icon {
+  width: 24px;
+  height: 24px;
+  margin-right: auto;
+}
+
+.header-nav {
+  display: flex;
+}
+
+.search-form {
+  margin-top: 40px;
+}
+
+.search-form-container {
+  position: relative;
+  bottom: 0px;
+  left: 0px;
+}
+
+.search-form__input {
+  position: relative;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+
+  background: transparent;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 0.5px solid #ffffff;
+
+  font-size: 14px;
+  line-height: 1.14;
+  color: $white-text-color;
+
+  &::placeholder {
+    font-size: 14px;
+    line-height: 1.14;
+    font-weight: normal;
+    color: $white-text-color;
+  }
+}
+
+.search-form__icon-svg {
+  position: absolute;
+  right: 0px;
+}

@@ -1,1 +1,32 @@
-<header>header</header>
+<header class="header">
+  <div class="container">
+    <nav class="nav-container">
+      <a class="logo">
+        <svg class="logo__icon">
+          <use href="./images/icons/sprite.svg#film" width="24" height="24"></use>
+        </svg>
+        <span class="logo__name">Filmoteka</span>
+      </a>
+      <ul class="header-nav">
+        <li class="header-nav__list">Home</li>
+        <li class="header-nav__list">My library</li>
+      </ul>
+    </nav>
+    <div class="search-form-container">
+      <form class="search-form">
+        <label
+          ><input
+            class="js-search-form search-form__input"
+            type="text"
+            name="query"
+            placeholder="Поиск фильмов"
+            autocomplete="off"
+          />
+          <svg class="search-form__icon-svg" width="12" height="12">
+            <use href="./images/icons/sprite.svg#search"></use>
+          </svg>
+        </label>
+      </form>
+    </div>
+  </div>
+</header>
