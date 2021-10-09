@@ -7,7 +7,13 @@ document.querySelector('.js-search-form').addEventListener('input', debounce(onF
 
 function onFilterChange(e) {
     log(e.target.value.toLowerCase())
-    getSearchedMovies(e.target.value.toLowerCase())
-        .then(log)
+    try {
+        getSearchedMovies(e.target.value.toLowerCase())
+            .then(log)
+    } catch (e) {
+        log('error', e);
+    } finally {
+        // block finally
+    }   
 }
 
