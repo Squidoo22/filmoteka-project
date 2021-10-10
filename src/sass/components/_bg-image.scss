@@ -1,0 +1,82 @@
+// Background images for home page
+.header__home-bg {
+  background-image: linear-gradient(90deg, $header-gradient-color, $header-gradient-color),
+    url('../images/header-bg/header-background-desktop@1x.jpg');
+
+  @media screen and (max-width: $to-tablet) {
+    background-image: linear-gradient(90deg, $header-gradient-color, $header-gradient-color),
+      url('../images/header-bg/header-background-mobile@1x.jpg');
+  }
+
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    @media screen and (max-width: $to-tablet) {
+      background-image: linear-gradient(90deg, $header-gradient-color, $header-gradient-color),
+        url('../images/header-bg/header-background-mobile@2x.jpg');
+    }
+  }
+
+  @media screen and(min-width: $tablet) {
+    background-image: linear-gradient(90deg, $header-gradient-color, $header-gradient-color),
+      url('../images/header-bg/header-background-tablet@1x.jpg');
+  }
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    @media screen and (max-width: $tablet) {
+      background-image: linear-gradient(90deg, $header-gradient-color, $header-gradient-color),
+        url('../images/header-bg/header-background-tablet@2x.jpg');
+    }
+  }
+
+  @media screen and(min-width: $desktop) {
+    background-image: linear-gradient(90deg, $header-gradient-color, $header-gradient-color),
+      url('../images/header-bg/header-background-desktop@1x.jpg');
+  }
+
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    @media screen and (max-width: $desktop) {
+      background-image: linear-gradient(90deg, $header-gradient-color, $header-gradient-color),
+        url('../images/header-bg/header-background-desktop@2x.jpg');
+    }
+  }
+}
+
+// Background images for library
+.header__library-bg {
+  background-image: linear-gradient(90deg, $header-gradient-color, $header-gradient-color),
+    url('../images/library-bg/header-library-background-desktop@1x.jpg');
+
+  @media screen and (max-width: $to-tablet) {
+    background-image: linear-gradient(90deg, $header-gradient-color, $header-gradient-color),
+      url('../images/library-bg/header-library-background-mobile@1x.jpg');
+  }
+
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    @media screen and (max-width: $to-tablet) {
+      background-image: linear-gradient(90deg, $header-gradient-color, $header-gradient-color),
+        url('../images/library-bg/header-library-background-mobile@2x.jpg');
+    }
+  }
+
+  @media screen and (max-width: $tablet) {
+    background-image: linear-gradient(90deg, $header-gradient-color, $header-gradient-color),
+      url('../images/library-bg/header-library-background-tablet@1x.jpg');
+  }
+
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    @media screen and (max-width: $tablet) {
+      background-image: linear-gradient(90deg, $header-gradient-color, $header-gradient-color),
+        url('../images/library-bg/header-library-background-tablet@2x.jpg');
+    }
+  }
+
+  @media screen and (max-width: $desktop) {
+    background-image: linear-gradient(90deg, $header-gradient-color, $header-gradient-color),
+      url('../images/library-bg/header-library-background-desktop@1x.jpg');
+  }
+
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    @media screen and (max-width: $desktop) {
+      background-image: linear-gradient(90deg, $header-gradient-color, $header-gradient-color),
+        url('../images/library-bg/header-library-background-desktop@2x.jpg');
+    }
+  }
+}
