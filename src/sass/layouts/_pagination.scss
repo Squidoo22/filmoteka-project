@@ -1,7 +1,7 @@
 .tui-pagination {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  margin-bottom: 60px;
 }
 
 .tui-page-btn {
@@ -42,7 +42,6 @@
 }
 
 @media screen and (max-width: 767px) {
-
   .tui-prev-is-ellip,
   .tui-next-is-ellip {
     display: none;

@@ -1,3 +1,11 @@
+.content-wrapper {
+  min-height: calc(100vh - 330px);
+
+  @media screen and (min-width: $tablet) {
+    min-height: calc(100vh - 307px);
+  }
+}
+
 .gallery {
   padding-top: 60px;
   padding-bottom: 60px;
