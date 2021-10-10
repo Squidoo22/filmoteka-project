@@ -1,5 +1,7 @@
 import '../sass/main.scss';
 import { getGenres, getMovieById, getSearchedMovies, getTrendingMovies } from './api/movies-api';
+import './components/search-by-input';
+
 
 // getSearchedMovies('avengers').then(movies => console.log(movies.results));
 // getTrendingMovies().then(movies => console.log(movies.results));
