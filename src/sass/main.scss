@@ -6,8 +6,13 @@
 @import './base/base';
 @import './base/fonts';
 @import './base/container';
+@import './base/btn';
 
 // Sections
 @import './layouts/header';
 @import './layouts/footer';
 @import './layouts/gallery';
+
+// Header components
+@import './components/bg-image';
+@import './components/search-form';

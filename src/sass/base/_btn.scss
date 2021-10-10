@@ -1,0 +1,22 @@
+.btn {
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+  text-transform: uppercase;
+  background: transparent;
+  border-radius: 5px;
+  border: 1px solid $white-text-color;
+  outline: none;
+
+  width: 130px;
+  height: 44px;
+
+  transition: background-color $transition-duration $timing-function;
+
+  &:hover,
+  &:focus {
+    background-color: $hover-rating-color;
+    box-shadow: 0px 8px 43px $button-header-library;
+    border: transparent;
+  }
+}
