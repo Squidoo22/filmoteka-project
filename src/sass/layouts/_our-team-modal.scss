@@ -1,0 +1,109 @@
+.lightbox {
+  position: fixed;
+  display: table;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.modal-background {
+  display: table-cell;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.lightbox__content {
+  position: relative;
+  background: $white-text-color;
+  padding: 15px;
+  display: inline-block;
+  height: 100vh;
+  border-radius: 4px;
+
+  overflow-y: auto;
+
+  @media screen and (max-width: 479px) {
+    width: 300px;
+  }
+
+  @media screen and (min-width: 480px) {
+    width: 350px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 500px;
+    height: 700px;
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 950px;
+    height: 640px;
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+}
+
+.modal-title {
+  position: relative;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 16px;
+  color: $accent-color;
+
+  padding-top: 15px;
+}
+
+.button-close {
+  position: fixed;
+  display: flex;
+
+  right: calc(50% - 157.5px);
+
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+  padding: 0;
+
+  background-color: transparent;
+  fill: $detalis-film-color;
+  transition: background-color $transition-duration $timing-function;
+  outline: none;
+
+  cursor: pointer;
+
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+
+  @media screen and (max-width: 479px) {
+    right: calc(50% - 155px);
+  }
+  @media screen and (min-width: 480px) {
+    right: calc(50% - 180px);
+  }
+
+  @media screen and (min-width: 768px) {
+    right: calc(50% - 245px);
+  }
+
+  @media screen and (min-width: 1024px) {
+    right: calc(50% - 475px);
+  }
+
+  &:hover,
+  &:focus {
+    background-color: rgba(233, 101, 24, 0.5);
+    fill: $white-text-color;
+  }
+}
