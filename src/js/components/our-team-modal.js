@@ -30,7 +30,6 @@ function onBackdropClick(event) {
 
 function onEscClick(event) {
   const ESC_KEY_CODE = 'Escape';
-  console.log(event.code);
 
   if (event.code === ESC_KEY_CODE) {
     onCloseModal();
