@@ -5,6 +5,9 @@ const refs = {
   galleryList: document.querySelector('.gallery'),
 };
 
+const watchedArr = [];
+const queueArr = [];
+
 refs.galleryList.addEventListener('click', e => {
   if ((e.target.nodeName !== 'IMG') & (e.target.nodeName !== 'H1') & (e.target.nodeName !== 'P')) {
     return;
@@ -23,15 +26,15 @@ const getMovie = async function (id) {
 
               </div>
                 <button type="button" class="modal__button" id="watched">add to Watched</button>
-                <button type="button" class="modal__button modal__button--position">add to queue</button>
+                <button type="button" class="modal__button modal__button--position" id="queue">add to queue</button>
             </div>
           `,
     );
     showModal.show();
     if (showModal.show() === true) {
       addToWatched(movie);
+      addToQueue(movie);
     }
-    console.log(showModal.show(), 'showModal.show()');
   } catch (error) {
     console.log(error);
   }
@@ -40,7 +43,15 @@ const getMovie = async function (id) {
 const addToWatched = movie => {
   const watchedBtn = document.querySelector('#watched');
   watchedBtn.addEventListener('click', () => {
-    console.log('olololo', movie);
-    localStorage.setItem('watchedMovie', JSON.stringify(movie));
+    watchedArr.push(movie);
+    localStorage.setItem('watchedMovie', JSON.stringify(watchedArr));
+  });
+};
+
+const addToQueue = movie => {
+  const queueBtn = document.querySelector('#queue');
+  queueBtn.addEventListener('click', () => {
+    queueArr.push(movie);
+    localStorage.setItem('queueMovie', JSON.stringify(queueArr));
   });
 };
