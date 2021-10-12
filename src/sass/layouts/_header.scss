@@ -68,7 +68,7 @@
 
 //Styles for library buttons
 
-.header__library-btn {
+.btn--dark-theme {
   color: $white-text-color;
 
   @media screen and(min-width: $tablet) {
@@ -84,8 +84,4 @@
   display: flex;
   justify-content: center;
   margin-top: 40px;
-}
-
-.visually-hidden {
-  display: none;
 }
