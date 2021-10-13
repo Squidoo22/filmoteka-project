@@ -36,18 +36,32 @@
   background: #fff;
   border-radius: 4px;
   box-shadow: 0 5px 20px rgb(0 0 0 / 20%);
+
+  @media screen and (max-width: 768px) {
+    width: 618px;
+    height: 562px;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 280px;
+    min-height: 958px;
+    max-height: 100vh;
+  }
 }
 
-.basicLightbox:after {
-  content: '';
+.basicLightbox-bg {
   position: absolute;
-  top: 1.8rem;
-  right: 1.8rem;
-  width: 2em;
-  height: 2em;
-  background: url('https://basiclightbox.electerious.com/assets/images/close.svg');
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border: unset;
+  border-radius: 50%;
+  background-color: #ff6b01;
+  background-image: url('https://basiclightbox.electerious.com/assets/images/close.svg');
   background-size: contain;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .img__container {
@@ -59,6 +73,19 @@
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 5px;
+
+  @media screen and (max-width: 768px) {
+    width: 264px;
+    height: 374px;
+    top: 40px;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 240px;
+    height: 357px;
+    left: 20px;
+    top: 50px;
+  }
 }
 
 .modal__button {
@@ -82,6 +109,18 @@
   text-transform: uppercase;
 
   color: #ffffff;
+
+  @media screen and (max-width: 768px) {
+    left: 324px;
+    top: 478px;
+    width: 125px;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 113px;
+    left: 20px;
+    top: 873px;
+  }
 }
 
 .modal__button--position {
@@ -89,4 +128,169 @@
   border: 1px solid #000000;
   color: #000000;
   background-color: #fff;
+
+  @media screen and (max-width: 768px) {
+    left: 464px;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    left: 148px;
+  }
+}
+
+.modal__title {
+  position: absolute;
+  left: 456px;
+  top: 50px;
+
+  font-family: Roboto;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.17;
+
+  color: #000000;
+
+  @media screen and (max-width: 768px) {
+    left: 324px;
+    top: 40px;
+    font-size: 20px;
+    line-height: 1.15;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    left: 20px;
+    top: 435px;
+    line-height: 1.17;
+  }
+}
+
+.modal__text {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+
+  color: #8c8c8c;
+}
+
+.modal__list {
+  position: absolute;
+  left: 456px;
+  top: 135px;
+
+  @media screen and (max-width: 768px) {
+    left: 324px;
+    top: 82px;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    left: 20px;
+    top: 476px;
+  }
+}
+
+.modal__list--position {
+  position: absolute;
+  left: 608px;
+  top: 135px;
+
+  @media screen and (max-width: 768px) {
+    left: 432px;
+    top: 82px;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    left: 128px;
+    top: 476px;
+  }
+}
+
+.list__item {
+  margin-bottom: 10px;
+}
+
+.list__grade {
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+}
+
+.list__grade--flex {
+  display: flex;
+  align-items: center;
+}
+
+.list__grade--color {
+  width: 36px;
+  height: 16px;
+  color: #fff;
+  background: #ff6b01;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.list__grade--color--gray {
+  width: 36px;
+  height: 16px;
+
+  background: #f7f7f7;
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.modal__about {
+  position: absolute;
+  left: 456px;
+  top: 235px;
+
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+
+  color: #000000;
+
+  @media screen and (max-width: 768px) {
+    left: 324px;
+    top: 196px;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    left: 20px;
+    top: 590px;
+  }
+}
+
+.modal__desc {
+  position: absolute;
+  left: 456px;
+  top: 250px;
+  padding-right: 30px;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.67;
+
+  color: #000000;
+
+  @media screen and (max-width: 768px) {
+    left: 324px;
+    top: 222px;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    left: 20px;
+    top: 616px;
+  }
+}
+
+.btn__disabled {
+  background-color: grey;
+  color: #fff;
 }

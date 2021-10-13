@@ -8,6 +8,10 @@ import './components/movie-modal';
 import './components/render-library';
 import './components/render-queue';
 
+=======
+import saveGenres from './components/save-genres-to-ls';
+import './components/change-home-library';
+
 
 // getSearchedMovies('avengers').then(movies => console.log(movies.results));
 // getTrendingMovies().then(movies => console.log(movies.results));
@@ -16,3 +20,4 @@ import './components/render-queue';
 
 renderTrendingMovies();
 createPagination();
+saveGenres();

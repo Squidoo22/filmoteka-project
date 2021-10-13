@@ -1,6 +1,9 @@
 import { getSearchedMovies } from '../api/movies-api';
 import debounce from 'lodash.debounce';
 import movieCardsTpl from '../../templates/movie-card.hbs';
+import changeData from './change-array-data';
+
+//  поиск фильмов в строле поиска по ключевому слову
 
 const refs = {
     inputField: document.querySelector('.js-search-form'),
@@ -18,8 +21,8 @@ function onFilterChange(e) {
         getSearchedMovies(inputValue)
             .then(data => {
                 // log(data.results);
-                const markUp = movieCardsTpl(data.results)
-                refs.outputField.innerHTML = markUp;
+                const newData = changeData(data.results);
+                refs.outputField.innerHTML = movieCardsTpl(newData);
             })
     } catch (e) {
         log('error', e);
