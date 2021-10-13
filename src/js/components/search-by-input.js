@@ -48,7 +48,7 @@ export function onFilterChange(e) {
       });
     });
   } catch (e) {
-    log('error', e);
+    console.log('error', e);
   } finally {
     // block finally
   }
