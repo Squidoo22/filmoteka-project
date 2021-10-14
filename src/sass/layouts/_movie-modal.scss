@@ -18,6 +18,7 @@
   opacity: 1;
 }
 .basicLightbox__placeholder {
+  max-height: 100vh;
   max-width: 100%;
   -webkit-transform: scale(0.9);
   transform: scale(0.9);
@@ -26,6 +27,7 @@
   transition: transform 0.4s ease, -webkit-transform 0.4s ease;
   z-index: 1;
   will-change: transform;
+  overflow-y: auto;
 }
 
 .modal {
@@ -291,6 +293,7 @@
 }
 
 .btn__disabled {
+  display: none;
   background-color: grey;
   color: #fff;
 }

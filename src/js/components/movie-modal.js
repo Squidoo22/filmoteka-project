@@ -89,11 +89,11 @@ const testBtnWatch = (movie, watchedBtn) => {
 
   for (let i = 0; i < storageMovieArr.length; i += 1) {
     if (storageMovieArr[i].id === movie.id) {
-      watchedBtn.disabled = true;
-      watchedBtn.textContent = 'added to viewed';
+      watchedBtn.textContent = 'remove from Watched';
       watchedBtn.classList.add('btn__disabled');
+
+      return;
     } else {
-      watchedBtn.disabled = false;
       watchedBtn.textContent = 'add to Watched';
       watchedBtn.classList.remove('btn__disabled');
     }
@@ -106,11 +106,11 @@ const testBtnQueue = (movie, queueBtn) => {
 
   for (let i = 0; i < storageQueueMovieArr.length; i += 1) {
     if (storageQueueMovieArr[i].id === movie.id) {
-      queueBtn.disabled = true;
-      queueBtn.textContent = 'added to queue';
+      queueBtn.textContent = 'remove from queue';
       queueBtn.classList.add('btn__disabled');
+
+      return;
     } else {
-      queueBtn.disabled = false;
       queueBtn.textContent = 'add to queue';
       queueBtn.classList.remove('btn__disabled');
     }
