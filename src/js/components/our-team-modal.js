@@ -15,7 +15,6 @@ function onOpenModal(evt) {
   refs.lightboxFooterModal.classList.remove('visually-hidden');
 
   renderSliderMarkup();
-  console.log(tns);
 }
 
 refs.closeFooterModal.addEventListener('click', onCloseModal);
