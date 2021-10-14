@@ -4,6 +4,8 @@ import movieCardsTpl from '../../templates/movie-card.hbs';
 import changeData from './change-array-data';
 import Pagination from 'tui-pagination';
 import noData from './no-data-to-render';
+import { renderTrendingMovies } from './render-trending-movies';
+
 
 //  поиск фильмов в строле поиска по ключевому слову
 
@@ -24,7 +26,10 @@ const scrollToNewPage = () => {
 
 export function onFilterChange(e) {
   const inputValue = e.target.value.toLowerCase().trim();
-  if (!inputValue) return;
+  if (!inputValue) {
+    renderTrendingMovies()
+    return
+  };
   try {
     getSearchedMovies(inputValue).then(data => {
       const myPagination = new Pagination(refs.container, {
