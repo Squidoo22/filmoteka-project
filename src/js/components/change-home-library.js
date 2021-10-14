@@ -1,3 +1,6 @@
+import { createPagination } from './pagination';
+import { renderTrendingMovies } from './render-trending-movies';
+
 const refs = {
   homeBtn: document.querySelector('.js-btn-home'),
   libraryBtn: document.querySelector('.js-btn-library'),
@@ -15,6 +18,8 @@ function onOpenHomePage() {
   refs.libraryPage.classList.add('visually-hidden');
   refs.libraryBtn.classList.remove('header__btn--accent');
   refs.homeBtn.classList.add('header__btn--accent');
+  renderTrendingMovies();
+  createPagination();
 }
 
 function onOpenLibraryPage() {
