@@ -5,8 +5,9 @@ const refs = {
   galleryList: document.querySelector('.gallery'),
 };
 
-const watchedArr = [];
-const queueArr = [];
+
+const watchedArr = JSON.parse(localStorage.getItem('watchedMovie')) || [];
+const queueArr = JSON.parse(localStorage.getItem('queueMovie')) || [];
 
 refs.galleryList.addEventListener('click', e => {
   if ((e.target.nodeName !== 'IMG') & (e.target.nodeName !== 'H1') & (e.target.nodeName !== 'P')) {
