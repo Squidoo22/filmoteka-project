@@ -9,36 +9,36 @@
     "fullName": "Hanna",
     "photoUrl": "hanna",
     "githubUrl": "https://github.com/Mandzirokha",
-    "description": "Anya, our wonderful Scrum Master has developed a header and a library."
+    "description": "Anya, our beautiful Scrum master, held daily meetings and developed a header and a library."
   },
   {
     "fullName": "Alisa",
     "photoUrl": "alisa",
     "githubUrl": "https://github.com/Alisa-Bogatyryova",
-    "description": ""
+    "description": "Alisa was involved in the implementation of the functions of rendering the watched films and films in the queue."
   },
   {
     "fullName": "Andriy",
     "photoUrl": "andriy",
     "githubUrl": "https://github.com/Andre-ft",
-    "description": ""
+    "description": "Andriy implemented the function of searching films by keyword."
   },
   {
     "fullName": "Mikhaylo",
     "photoUrl": "misha",
     "githubUrl": "https://github.com/Mikhaylo-Khokhlov",
-    "description": "Senior Pomidor Software engineer"
+    "description": "Misha worked on the development of a modal window and functionality for adding films by the user."
   },
   {
     "fullName": "Vika",
     "photoUrl": "vika",
     "githubUrl": "https://github.com/vixxxyg",
-    "description": ""
+    "description": "Vika was engaged in the layout of the film card and render."
   },
   {
     "fullName": "Taras",
     "photoUrl": "taras",
     "githubUrl": "https://github.com/Taras-Kolomiiets",
-    "description": ""
+    "description": "Taras was engaged in setting up all calls to the api and activities related to pagination"
   }
 ]
