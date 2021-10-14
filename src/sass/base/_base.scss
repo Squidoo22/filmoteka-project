@@ -15,7 +15,7 @@ body {
   font-size: $font-size;
   font-style: $font-style;
   line-height: $line-height;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 // Убирает лишние отступы у картинок снизу + добавляет отзывчивость
