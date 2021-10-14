@@ -14,6 +14,10 @@ export default function changeData(array) {
 }
 
 function replaceGenres(movie) {
+    if (movie.genres) {
+        movie.genre_ids = movie.genres.map(elem => elem.id);
+    }
+    movie.genre_ids = movie.genre_ids || movie.genres;
     if (movie.genre_ids.length > 3) {
         movie.genre_ids.length = 3;
         movie.genre_ids[2] = ' Other';
