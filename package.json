@@ -18,10 +18,15 @@
   "bugs": {
     "url": "https://github.com/Squidoo22/filmoteka-project/issues"
   },
+  "staticFiles": {
+    "staticPath": "src/public",
+    "watcherGlob": "**"
+  },
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
     "parcel-plugin-nuke-dist": "^1.0.1",
+    "parcel-plugin-static-files-copy": "^2.6.0",
     "posthtml-include": "^1.6.2",
     "sass": "^1.32.8"
   },
@@ -29,6 +34,7 @@
     "axios": "^0.22.0",
     "basiclightbox": "^5.0.4",
     "lodash.debounce": "^4.0.8",
+    "tiny-slider": "^2.9.3",
     "tui-pagination": "^3.4.1"
   }
 }

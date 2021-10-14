@@ -1,3 +1,5 @@
+import { renderSliderMarkup } from './our-team-slider';
+
 const refs = {
   openFooterModal: document.querySelector('[data-action="open-lightbox"]'),
   closeFooterModal: document.querySelector('[data-action="close-lightbox"]'),
@@ -11,6 +13,9 @@ function onOpenModal(evt) {
   evt.preventDefault();
   window.addEventListener('keydown', onEscClick); //для Esc
   refs.lightboxFooterModal.classList.remove('visually-hidden');
+
+  renderSliderMarkup();
+  console.log(tns);
 }
 
 refs.closeFooterModal.addEventListener('click', onCloseModal);

@@ -36,14 +36,14 @@
 
   @media screen and (min-width: 768px) {
     width: 500px;
-    height: 700px;
+    height: 540px;
     padding-left: 60px;
     padding-right: 60px;
   }
 
   @media screen and (min-width: 1024px) {
     width: 950px;
-    height: 640px;
+    height: 470px;
     padding-left: 45px;
     padding-right: 45px;
   }
@@ -57,6 +57,7 @@
   color: $accent-color;
 
   padding-top: 15px;
+  margin-bottom: 50px;
 }
 
 .button-close {
@@ -106,4 +107,60 @@
     background-color: rgba(233, 101, 24, 0.5);
     fill: $white-text-color;
   }
+}
+
+.my-slider {
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tns-nav {
+    text-align: center;
+    display: flex; // поставить кнопки в ряд
+    justify-content: center; // выровнять по центру
+    list-style: none; // убираем черные маркеры
+  }
+
+  .tns-nav button {
+    background: #eddfd477; // цвет фона
+    border: none; // без рамки
+    border-radius: 50%; // радиус закругления
+    height: 15px; // высота точки
+    width: 15px; // ширина точки
+    margin: 5px; // отступы между точками
+    outline: none; // убираем обводку
+  }
+
+  .tns-nav button:not([tabindex]) {
+    background: #eac8be;
+  }
+}
+
+.slider-controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name-title {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  color: $accent-color;
+  font-weight: 500;
+}
+
+.description {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.photo-wrapper {
+  width: 132px;
+  height: 132px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 50%;
 }
