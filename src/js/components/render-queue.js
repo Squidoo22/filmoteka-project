@@ -44,8 +44,8 @@ export function renderQueueMovies() {
     myPagination.on('afterMove', function () {
       let size = 20;
       let subarray = [];
-      for (let i = 0; i < Math.ceil(moviesArrayWatched.length / size); i++) {
-        subarray[i] = moviesArrayWatched.slice(i * size, i * size + size);
+      for (let i = 0; i < Math.ceil(moviesArrayQueue.length / size); i++) {
+        subarray[i] = moviesArrayQueue.slice(i * size, i * size + size);
       }
       let currentPage = myPagination._currentPage - 1;
       refs.galleryContainer.innerHTML = movieCardTpl(subarray[currentPage]);
