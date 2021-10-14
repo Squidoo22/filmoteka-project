@@ -8,6 +8,7 @@ const refs = {
   libraryPage: document.querySelector('.js-library'),
   logoClick: document.querySelector('.logo'),
   inputField: document.querySelector('.js-search-form'),
+  headerBg: document.querySelector('.header'),
 };
 
 refs.logoClick.addEventListener('click', onOpenHomePage);
@@ -20,6 +21,7 @@ function onOpenHomePage() {
   refs.libraryPage.classList.add('visually-hidden');
   refs.libraryBtn.classList.remove('header__btn--accent');
   refs.homeBtn.classList.add('header__btn--accent');
+  changeBgImage();
   renderTrendingMovies();
   createPagination();
 }
@@ -29,4 +31,13 @@ function onOpenLibraryPage() {
   refs.homePage.classList.add('visually-hidden');
   refs.homeBtn.classList.remove('header__btn--accent');
   refs.libraryBtn.classList.add('header__btn--accent');
+  changeBgImage();
+}
+
+function changeBgImage() {
+  if (refs.homePage.classList.contains('visually-hidden')) {
+    refs.headerBg.classList.replace('header__home-bg', 'header__library-bg');
+  } else {
+    refs.headerBg.classList.replace('header__library-bg', 'header__home-bg');
+  }
 }
