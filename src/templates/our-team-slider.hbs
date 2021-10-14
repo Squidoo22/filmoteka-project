@@ -1,0 +1,23 @@
+<div class='my-slider'>
+  {{#each this}}
+    <div class='slider-item'>
+      <div class='card'>
+        <div class='photo-wrapper'>
+          <img
+            srcset='{{photoUrl}}.jpg 1x, {{photoUrl}}@2x.jpg 2x'
+            src='{{photoUrl}}.jpg'
+            alt='team member'
+            width='200'
+            class='customer-reviews__image'
+            alt=''
+          />
+        </div>
+        <h2 class='name-title'>{{fullName}}</h2>
+        <p class='description'>{{description}}</p>
+        <a href='{{githubUrl}}' target='_blank' rel='noopener noreferrer'>
+          <img width='40px' src='github.png' alt='github-icon' />
+        </a>
+      </div>
+    </div>
+  {{/each}}
+</div>

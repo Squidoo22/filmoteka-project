@@ -1,0 +1,44 @@
+[
+  {
+    "fullName": "Dmytro",
+    "photoUrl": "dima",
+    "githubUrl": "https://github.com/squidoo22",
+    "description": "Dima was engaged in the development of the footer, as well as this beautiful modal window."
+  },
+  {
+    "fullName": "Hanna",
+    "photoUrl": "hanna",
+    "githubUrl": "https://github.com/Mandzirokha",
+    "description": "Anya, our wonderful Scrum Master has developed a header and a library."
+  },
+  {
+    "fullName": "Alisa",
+    "photoUrl": "alisa",
+    "githubUrl": "https://github.com/Alisa-Bogatyryova",
+    "description": ""
+  },
+  {
+    "fullName": "Andriy",
+    "photoUrl": "andriy",
+    "githubUrl": "https://github.com/Andre-ft",
+    "description": ""
+  },
+  {
+    "fullName": "Mikhaylo",
+    "photoUrl": "misha",
+    "githubUrl": "https://github.com/Mikhaylo-Khokhlov",
+    "description": "Senior Pomidor Software engineer"
+  },
+  {
+    "fullName": "Vika",
+    "photoUrl": "vika",
+    "githubUrl": "https://github.com/vixxxyg",
+    "description": ""
+  },
+  {
+    "fullName": "Taras",
+    "photoUrl": "taras",
+    "githubUrl": "https://github.com/Taras-Kolomiiets",
+    "description": ""
+  }
+]
