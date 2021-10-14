@@ -7,6 +7,7 @@ const refs = {
   homePage: document.querySelector('.js-home'),
   libraryPage: document.querySelector('.js-library'),
   logoClick: document.querySelector('.logo'),
+  inputField: document.querySelector('.js-search-form'),
 };
 
 refs.logoClick.addEventListener('click', onOpenHomePage);
@@ -14,6 +15,7 @@ refs.homeBtn.addEventListener('click', onOpenHomePage);
 refs.libraryBtn.addEventListener('click', onOpenLibraryPage);
 
 function onOpenHomePage() {
+  refs.inputField.value = '';
   refs.homePage.classList.remove('visually-hidden');
   refs.libraryPage.classList.add('visually-hidden');
   refs.libraryBtn.classList.remove('header__btn--accent');
