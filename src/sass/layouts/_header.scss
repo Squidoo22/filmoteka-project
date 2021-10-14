@@ -49,6 +49,7 @@
 //Styles for logo
 .logo__name {
   display: none;
+  cursor: pointer;
 
   @media screen and(min-width: $tablet) {
     display: inline-block;

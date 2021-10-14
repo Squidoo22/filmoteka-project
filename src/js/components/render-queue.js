@@ -6,9 +6,9 @@ const refs = {
   galleryContainer: document.getElementById('gallery'),
 };
 
-refs.btnQueue.addEventListener('click', renderMovies);
+refs.btnQueue.addEventListener('click', renderQueueMovies);
 
-function renderMovies() {
+export function renderQueueMovies() {
   const savedMoviesQueue = localStorage.getItem('queueMovie');
   const moviesArrayQueue = JSON.parse(savedMoviesQueue);
   refs.galleryContainer.innerHTML = movieCardTpl(moviesArrayQueue);

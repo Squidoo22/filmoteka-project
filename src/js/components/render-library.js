@@ -5,10 +5,10 @@ const refs = {
   galleryContainer: document.getElementById('gallery'),
 };
 
-refs.btnLibrary.addEventListener('click', renderMovies);
-refs.btnWatched.addEventListener('click', renderMovies);
+refs.btnLibrary.addEventListener('click', renderWatchedMovies);
+refs.btnWatched.addEventListener('click', renderWatchedMovies);
 
-function renderMovies() {
+export function renderWatchedMovies() {
   const savedMoviesWatched = localStorage.getItem('watchedMovie');
   const moviesArrayWatched = JSON.parse(savedMoviesWatched);
   refs.galleryContainer.innerHTML = movieCardTpl(moviesArrayWatched);

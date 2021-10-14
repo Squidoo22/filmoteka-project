@@ -1,13 +1,14 @@
 const basicLightbox = require('basiclightbox');
 import { getMovieById } from '../api/movies-api';
+import { renderWatchedMovies } from '../components/render-library';
+import { renderQueueMovies } from '../components/render-queue';
 
 const refs = {
   galleryList: document.querySelector('.gallery'),
 };
 
-
-const watchedArr = JSON.parse(localStorage.getItem('watchedMovie')) || [];
-const queueArr = JSON.parse(localStorage.getItem('queueMovie')) || [];
+let watchedArr = JSON.parse(localStorage.getItem('watchedMovie')) || [];
+let queueArr = JSON.parse(localStorage.getItem('queueMovie')) || [];
 
 refs.galleryList.addEventListener('click', e => {
   if ((e.target.nodeName !== 'IMG') & (e.target.nodeName !== 'H1') & (e.target.nodeName !== 'P')) {
@@ -42,6 +43,8 @@ const getMovie = async function (id) {
               <p class="modal__desc">${movie.overview}</p>
                 <button type="button" class="modal__button" id="watched">add to Watched</button>
                 <button type="button" class="modal__button modal__button--position" id="queue">add to queue</button>
+                <button type="button" class="modal__button btn__disabled" id="watchedRemove">remove from Watched</button>
+                <button type="button" class="modal__button  modal__button--position btn__disabled" id="queueRemove">remove from queue</button>
                 <button color="black" type="button" class="basicLightbox-bg">
                    
                 </button>
@@ -56,64 +59,85 @@ const getMovie = async function (id) {
     showModal.show();
     if (showModal.show() === true) {
       const watchedBtn = document.querySelector('#watched');
+      const removeWatchedBtn = document.querySelector('#watchedRemove');
       const queueBtn = document.querySelector('#queue');
+      const removeQueueBtn = document.querySelector('#queueRemove');
 
-      addToWatched(movie, watchedBtn);
-      addToQueue(movie, queueBtn);
-      testBtnQueue(movie, queueBtn);
-      testBtnWatch(movie, watchedBtn);
+      addToWatched(movie, watchedBtn, removeWatchedBtn);
+      removeFromWatched(movie, watchedBtn, removeWatchedBtn);
+      removeFromQueue(movie, queueBtn, removeQueueBtn);
+      addToQueue(movie, queueBtn, removeQueueBtn);
+      testBtnQueue(movie, queueBtn, removeQueueBtn);
+      testBtnWatch(movie, watchedBtn, removeWatchedBtn);
     }
   } catch (error) {
     console.log(error);
   }
 };
 
-const addToWatched = (movie, watchedBtn) => {
+const addToWatched = (movie, watchedBtn, removeWatchedBtn) => {
   watchedBtn.addEventListener('click', () => {
     watchedArr.push(movie);
     localStorage.setItem('watchedMovie', JSON.stringify(watchedArr));
-    testBtnWatch(movie, watchedBtn);
+    testBtnWatch(movie, watchedBtn, removeWatchedBtn);
   });
 };
 
-const addToQueue = (movie, queueBtn) => {
+const removeFromWatched = (movie, watchedBtn, removeWatchedBtn) => {
+  removeWatchedBtn.addEventListener('click', () => {
+    const modifiedArr = watchedArr.filter(item => item.id !== movie.id);
+    localStorage.setItem('watchedMovie', JSON.stringify(modifiedArr));
+    watchedArr = modifiedArr;
+    testBtnWatch(movie, watchedBtn, removeWatchedBtn);
+    renderWatchedMovies();
+  });
+};
+
+const removeFromQueue = (movie, queueBtn, removeQueueBtn) => {
+  removeQueueBtn.addEventListener('click', () => {
+    const modifiedArr = queueArr.filter(item => item.id !== movie.id);
+    localStorage.setItem('queueMovie', JSON.stringify(modifiedArr));
+    queueArr = modifiedArr;
+    testBtnQueue(movie, queueBtn, removeQueueBtn);
+    renderQueueMovies();
+  });
+};
+
+const addToQueue = (movie, queueBtn, removeQueueBtn) => {
   queueBtn.addEventListener('click', () => {
     queueArr.push(movie);
     localStorage.setItem('queueMovie', JSON.stringify(queueArr));
-    testBtnQueue(movie, queueBtn);
+    testBtnQueue(movie, queueBtn, removeQueueBtn);
   });
 };
 
-const testBtnWatch = (movie, watchedBtn) => {
-  const getWatchedArr = localStorage.getItem('watchedMovie');
-  const storageMovieArr = JSON.parse(getWatchedArr);
+const testBtnWatch = (movie, watchedBtn, removeWatchedBtn) => {
+  const storageMovieArr = watchedArr;
 
   for (let i = 0; i < storageMovieArr.length; i += 1) {
     if (storageMovieArr[i].id === movie.id) {
-      watchedBtn.disabled = true;
-      watchedBtn.textContent = 'added to viewed';
       watchedBtn.classList.add('btn__disabled');
+      removeWatchedBtn.classList.remove('btn__disabled');
+      return;
     } else {
-      watchedBtn.disabled = false;
-      watchedBtn.textContent = 'add to Watched';
       watchedBtn.classList.remove('btn__disabled');
+      removeWatchedBtn.classList.add('btn__disabled');
     }
   }
 };
 
-const testBtnQueue = (movie, queueBtn) => {
-  const getQueuedArr = localStorage.getItem('queueMovie');
-  const storageQueueMovieArr = JSON.parse(getQueuedArr);
+const testBtnQueue = (movie, queueBtn, removeQueueBtn) => {
+  // const getQueuedArr = localStorage.getItem('queueMovie');
+  const storageQueueMovieArr = queueArr;
 
   for (let i = 0; i < storageQueueMovieArr.length; i += 1) {
     if (storageQueueMovieArr[i].id === movie.id) {
-      queueBtn.disabled = true;
-      queueBtn.textContent = 'added to queue';
       queueBtn.classList.add('btn__disabled');
+      removeQueueBtn.classList.remove('btn__disabled');
+      return;
     } else {
-      queueBtn.disabled = false;
-      queueBtn.textContent = 'add to queue';
       queueBtn.classList.remove('btn__disabled');
+      removeQueueBtn.classList.add('btn__disabled');
     }
   }
 };
