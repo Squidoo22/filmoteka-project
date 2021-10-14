@@ -3,6 +3,7 @@ import debounce from 'lodash.debounce';
 import movieCardsTpl from '../../templates/movie-card.hbs';
 import changeData from './change-array-data';
 import Pagination from 'tui-pagination';
+import noData from './no-data-to-render';
 
 //  поиск фильмов в строле поиска по ключевому слову
 
@@ -26,8 +27,6 @@ export function onFilterChange(e) {
   if (!inputValue) return;
   try {
     getSearchedMovies(inputValue).then(data => {
-      const newData = changeData(data.results);
-      refs.outputField.innerHTML = movieCardsTpl(newData);
       const myPagination = new Pagination(refs.container, {
         totalItems: data.total_results,
         itemsPerPage: 20,
@@ -46,6 +45,15 @@ export function onFilterChange(e) {
         });
         scrollToNewPage();
       });
+      
+      if (data.results.length === 0) {
+        noData('Sorry. There is nothing for your request');
+        return;
+      }
+
+      const newData = changeData(data.results);
+      refs.outputField.innerHTML = movieCardsTpl(newData);
+
     });
   } catch (e) {
     console.log('error', e);
