@@ -12,7 +12,9 @@
           <button class="header__btn header__btn--accent js-btn-home" type="button">Home</button>
         </li>
         <li class="header__nav-item">
-          <button class="header__btn" type="button" id="btn-library">My library</button
+          <button class="header__btn js-btn-library" type="button" id="btn-library">
+            My library
+          </button>
         </li>
       </ul>
     </nav>
@@ -35,10 +37,18 @@
     <div class="js-library visually-hidden">
       <ul class="btn-set">
         <li class="header__library-item">
-          <button class="header__library-btn btn" id="btn-watched" type="button">Watched</button>
+          <button
+            class="header__library-btn btn btn btn--dark-theme"
+            id="btn-watched"
+            type="button"
+          >
+            Watched
+          </button>
         </li>
         <li class="header__library-item">
-          <button class="header__library-btn btn" id="btn-queue" type="button">Queue</button>
+          <button class="header__library-btn btn btn btn--dark-theme" id="btn-queue" type="button">
+            Queue
+          </button>
         </li>
       </ul>
     </div>
