@@ -5,9 +5,13 @@ import { renderTrendingMovies } from './components/render-trending-movies';
 import { createPagination } from './components/pagination';
 import './components/our-team-modal';
 import './components/movie-modal';
-import saveGenres from './components/save-genres-to-ls';
+import './components/render-library';
+import './components/render-queue';
 
+=======
+import saveGenres from './components/save-genres-to-ls';
 import './components/change-home-library';
+
 
 // getSearchedMovies('avengers').then(movies => console.log(movies.results));
 // getTrendingMovies().then(movies => console.log(movies.results));
