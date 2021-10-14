@@ -27,8 +27,8 @@ const scrollToNewPage = () => {
 export function onFilterChange(e) {
   const inputValue = e.target.value.toLowerCase().trim();
   if (!inputValue) {
-    renderTrendingMovies()
-    return
+    renderTrendingMovies();
+    return;
   };
   try {
     getSearchedMovies(inputValue).then(data => {
