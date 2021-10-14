@@ -8,15 +8,15 @@
         <span class="logo__name">Filmoteka</span>
       </a>
       <ul class="header__nav-list">
-        <li class="header__nav-item current-page">
-          <button class="header__btn" type="button">Home</button>
+        <li class="header__nav-item">
+          <button class="header__btn header__btn--accent js-btn-home" type="button">Home</button>
         </li>
         <li class="header__nav-item">
-          <button class="header__btn" type="button">My library</button>
+          <button class="header__btn" type="button" id="btn-library">My library</button
         </li>
       </ul>
     </nav>
-    <div>
+    <div class="js-home">
       <form class="search-form">
         <label
           ><input
@@ -32,13 +32,13 @@
         </label>
       </form>
     </div>
-    <div class="visually-hidden">
+    <div class="js-library visually-hidden">
       <ul class="btn-set">
         <li class="header__library-item">
-          <button class="header__library-btn btn" type="button">Watched</button>
+          <button class="header__library-btn btn" id="btn-watched" type="button">Watched</button>
         </li>
         <li class="header__library-item">
-          <button class="header__library-btn btn" type="button">Queue</button>
+          <button class="header__library-btn btn" id="btn-queue" type="button">Queue</button>
         </li>
       </ul>
     </div>

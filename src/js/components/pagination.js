@@ -3,9 +3,9 @@ import { renderTrendingMovies } from './render-trending-movies';
 import { getTrendingMovies } from '../api/movies-api';
 
 const onPageClick = async event => {
-  const renderNewPage = await renderTrendingMovies(event.page);
+  const renderTrendingPage = await renderTrendingMovies(event.page);
   scrollToNewPage();
-  return renderNewPage;
+  return renderTrendingPage;
 };
 
 const scrollToNewPage = () => {
@@ -17,7 +17,6 @@ const scrollToNewPage = () => {
 
 export const createPagination = () => {
   const container = document.getElementById('tui-pagination-container');
-
   getTrendingMovies()
     .then(movies => {
       const pagination = new Pagination(container, {
