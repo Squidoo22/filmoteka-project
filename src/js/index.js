@@ -10,7 +10,6 @@ import saveGenres from './components/save-genres-to-ls';
 import './components/change-home-library';
 import { renderTrendingMovies } from './components/render-trending-movies';
 
-
 // getSearchedMovies('avengers').then(movies => console.log(movies.results));
 // getTrendingMovies().then(movies => console.log(movies.results));
 // getMovieById(100).then(movie => console.log(movie));
