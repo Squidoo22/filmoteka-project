@@ -90,7 +90,6 @@ const removeFromWatched = (movie, watchedBtn, removeWatchedBtn) => {
     watchedArr = modifiedArr;
     testBtnWatch(movie, watchedBtn, removeWatchedBtn);
     renderWatchedMovies();
-    showModal.close();
   });
 };
 
