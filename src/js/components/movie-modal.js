@@ -1,12 +1,14 @@
 const basicLightbox = require('basiclightbox');
 import { getMovieById } from '../api/movies-api';
+import { renderWatchedMovies } from '../components/render-library';
+import { renderQueueMovies } from '../components/render-queue';
 
 const refs = {
   galleryList: document.querySelector('.gallery'),
 };
 
-const watchedArr = [];
-const queueArr = [];
+let watchedArr = JSON.parse(localStorage.getItem('watchedMovie')) || [];
+let queueArr = JSON.parse(localStorage.getItem('queueMovie')) || [];
 
 refs.galleryList.addEventListener('click', e => {
   if ((e.target.nodeName !== 'IMG') & (e.target.nodeName !== 'H1') & (e.target.nodeName !== 'P')) {
@@ -63,6 +65,7 @@ const getMovie = async function (id) {
 
       addToWatched(movie, watchedBtn, removeWatchedBtn);
       removeFromWatched(movie, watchedBtn, removeWatchedBtn);
+      removeFromQueue(movie, queueBtn, removeQueueBtn);
       addToQueue(movie, queueBtn, removeQueueBtn);
       testBtnQueue(movie, queueBtn, removeQueueBtn);
       testBtnWatch(movie, watchedBtn, removeWatchedBtn);
@@ -82,15 +85,22 @@ const addToWatched = (movie, watchedBtn, removeWatchedBtn) => {
 
 const removeFromWatched = (movie, watchedBtn, removeWatchedBtn) => {
   removeWatchedBtn.addEventListener('click', () => {
-    const getWatchedArr = localStorage.getItem('watchedMovie');
-    const storageMovieArr = JSON.parse(getWatchedArr);
-    console.log(storageMovieArr, 'do');
-    const searchId = movie.id;
-    const index = storageMovieArr.findIndex(el => el.id === searchId);
-    const modifiedArr = storageMovieArr.splice(index, 1);
-    console.log(modifiedArr, 'modifiedArr');
+    const modifiedArr = watchedArr.filter(item => item.id !== movie.id);
     localStorage.setItem('watchedMovie', JSON.stringify(modifiedArr));
+    watchedArr = modifiedArr;
     testBtnWatch(movie, watchedBtn, removeWatchedBtn);
+    renderWatchedMovies();
+    showModal.close();
+  });
+};
+
+const removeFromQueue = (movie, queueBtn, removeQueueBtn) => {
+  removeQueueBtn.addEventListener('click', () => {
+    const modifiedArr = queueArr.filter(item => item.id !== movie.id);
+    localStorage.setItem('queueMovie', JSON.stringify(modifiedArr));
+    queueArr = modifiedArr;
+    testBtnQueue(movie, queueBtn, removeQueueBtn);
+    renderQueueMovies();
   });
 };
 
@@ -103,8 +113,7 @@ const addToQueue = (movie, queueBtn, removeQueueBtn) => {
 };
 
 const testBtnWatch = (movie, watchedBtn, removeWatchedBtn) => {
-  const getWatchedArr = localStorage.getItem('watchedMovie');
-  const storageMovieArr = JSON.parse(getWatchedArr);
+  const storageMovieArr = watchedArr;
 
   for (let i = 0; i < storageMovieArr.length; i += 1) {
     if (storageMovieArr[i].id === movie.id) {
@@ -119,8 +128,8 @@ const testBtnWatch = (movie, watchedBtn, removeWatchedBtn) => {
 };
 
 const testBtnQueue = (movie, queueBtn, removeQueueBtn) => {
-  const getQueuedArr = localStorage.getItem('queueMovie');
-  const storageQueueMovieArr = JSON.parse(getQueuedArr);
+  // const getQueuedArr = localStorage.getItem('queueMovie');
+  const storageQueueMovieArr = queueArr;
 
   for (let i = 0; i < storageQueueMovieArr.length; i += 1) {
     if (storageQueueMovieArr[i].id === movie.id) {
