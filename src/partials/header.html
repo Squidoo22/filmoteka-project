@@ -1,12 +1,14 @@
 <header class="header header__home-bg">
   <div class="container">
     <nav class="header__nav-container">
-      <a class="logo">
-        <svg class="logo__icon-svg">
-          <use href="./images/icons/sprite.svg#film" width="24" height="24"></use>
-        </svg>
-        <span class="logo__name">Filmoteka</span>
-      </a>
+      <div class="logo">
+        <a>
+          <svg class="logo__icon-svg">
+            <use href="./images/icons/sprite.svg#film" width="24" height="24"></use>
+          </svg>
+          <span class="logo__name">Filmoteka</span>
+        </a>
+      </div>
       <ul class="header__nav-list">
         <li class="header__nav-item">
           <button class="header__btn header__btn--accent js-btn-home" type="button">Home</button>
@@ -18,7 +20,7 @@
         </li>
       </ul>
     </nav>
-    <div class="js-home">
+    <div class="js-home container__search-form">
       <form class="search-form">
         <label
           ><input
