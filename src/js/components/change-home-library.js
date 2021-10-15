@@ -17,7 +17,7 @@ refs.logoClick.addEventListener('click', onOpenHomePage);
 refs.homeBtn.addEventListener('click', onOpenHomePage);
 refs.libraryBtn.addEventListener('click', onOpenLibraryPage);
 
-function onOpenHomePage() {
+export function onOpenHomePage() {
   refs.watchedBtn.classList.remove('is-active');
   refs.queueBtn.classList.remove('is-active');
   refs.inputField.value = '';
@@ -30,7 +30,7 @@ function onOpenHomePage() {
   createPagination();
 }
 
-function onOpenLibraryPage() {
+export function onOpenLibraryPage() {
   refs.watchedBtn.classList.add('is-active');
   refs.queueBtn.classList.remove('is-active');
   refs.libraryPage.classList.remove('visually-hidden');
