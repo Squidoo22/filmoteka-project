@@ -4,6 +4,8 @@ import { renderTrendingMovies } from './render-trending-movies';
 const refs = {
   homeBtn: document.querySelector('.js-btn-home'),
   libraryBtn: document.querySelector('.js-btn-library'),
+  watchedBtn: document.querySelector('#btn-watched'),
+  queueBtn: document.querySelector('#btn-queue'),
   homePage: document.querySelector('.js-home'),
   libraryPage: document.querySelector('.js-library'),
   logoClick: document.querySelector('.logo'),
@@ -16,6 +18,8 @@ refs.homeBtn.addEventListener('click', onOpenHomePage);
 refs.libraryBtn.addEventListener('click', onOpenLibraryPage);
 
 export function onOpenHomePage() {
+  refs.watchedBtn.classList.remove('is-active');
+  refs.queueBtn.classList.remove('is-active');
   refs.inputField.value = '';
   refs.homePage.classList.remove('visually-hidden');
   refs.libraryPage.classList.add('visually-hidden');
@@ -27,6 +31,8 @@ export function onOpenHomePage() {
 }
 
 export function onOpenLibraryPage() {
+  refs.watchedBtn.classList.add('is-active');
+  refs.queueBtn.classList.remove('is-active');
   refs.libraryPage.classList.remove('visually-hidden');
   refs.homePage.classList.add('visually-hidden');
   refs.homeBtn.classList.remove('header__btn--accent');
