@@ -13,9 +13,11 @@ const refs = {
   inputField: document.querySelector('.js-search-form'),
   outputField: document.querySelector('#gallery'),
   container: document.getElementById('tui-pagination-container'),
+  searchForm: document.querySelector('form.search-form'),
 };
 
 refs.inputField.addEventListener('input', debounce(onFilterChange, 500));
+refs.searchForm.addEventListener('submit', e => e.preventDefault());
 
 const scrollToNewPage = () => {
   window.scrollTo({

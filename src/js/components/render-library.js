@@ -1,5 +1,7 @@
 import movieCardTpl from '../../templates/movie-card.hbs';
 import noData from './no-data-to-render';
+import changeData from './change-array-data';
+
 
 const refs = {
   btnWatched: document.getElementById('btn-watched'),
@@ -17,5 +19,6 @@ export function renderWatchedMovies() {
     noData('You have not added anything here yet');
     return;
   }
-  refs.galleryContainer.innerHTML = movieCardTpl(moviesArrayWatched);
+  const newData = changeData(moviesArrayWatched);
+  refs.galleryContainer.innerHTML = movieCardTpl(newData);
 }
