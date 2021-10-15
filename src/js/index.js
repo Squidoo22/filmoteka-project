@@ -15,6 +15,6 @@ import { renderTrendingMovies } from './components/render-trending-movies';
 // getMovieById(100).then(movie => console.log(movie));
 // getGenres().then(genres => console.log(genres));
 
+saveGenres();
 renderTrendingMovies();
 createPagination();
-saveGenres();
