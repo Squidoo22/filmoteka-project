@@ -3,7 +3,7 @@
   height: 230px;
 
   background-size: cover;
-  background-position: top;
+  background-position: center;
   background-repeat: no-repeat;
 }
 
@@ -47,6 +47,11 @@
 }
 
 //Styles for logo
+.logo:hover,
+.logo:focus {
+  transform: scale(1.1);
+}
+
 .logo__name {
   display: none;
   cursor: pointer;

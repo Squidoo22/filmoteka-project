@@ -1,6 +1,7 @@
 import movieCardTpl from '../../templates/movie-card.hbs';
 import noData from './no-data-to-render';
 import { createPaginationInLibrary } from './pagination';
+import changeData from './change-array-data';
 
 const refs = {
   btnWatched: document.getElementById('btn-watched'),
@@ -22,4 +23,6 @@ export function renderWatchedMovies() {
   refs.galleryContainer.innerHTML = movieCardTpl(moviesArrayWatched);
 
   createPaginationInLibrary(moviesArrayWatched, refs.container);
+  const newData = changeData(moviesArrayWatched);
+  refs.galleryContainer.innerHTML = movieCardTpl(newData);
 }
