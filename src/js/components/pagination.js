@@ -56,7 +56,7 @@ export const createPagination = () => {
 export const createPaginationInLibrary = (array, container) => {
   const galleryContainer = document.getElementById('gallery');
 
-  if (array.length <= 20) {
+  if (!array || array === null || array.length <= 20) {
     container.innerHTML = '';
   } else {
     const myPagination = new Pagination(container, {
