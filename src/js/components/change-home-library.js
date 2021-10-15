@@ -15,7 +15,7 @@ refs.logoClick.addEventListener('click', onOpenHomePage);
 refs.homeBtn.addEventListener('click', onOpenHomePage);
 refs.libraryBtn.addEventListener('click', onOpenLibraryPage);
 
-function onOpenHomePage() {
+export function onOpenHomePage() {
   refs.inputField.value = '';
   refs.homePage.classList.remove('visually-hidden');
   refs.libraryPage.classList.add('visually-hidden');
@@ -26,7 +26,7 @@ function onOpenHomePage() {
   createPagination();
 }
 
-function onOpenLibraryPage() {
+export function onOpenLibraryPage() {
   refs.libraryPage.classList.remove('visually-hidden');
   refs.homePage.classList.add('visually-hidden');
   refs.homeBtn.classList.remove('header__btn--accent');

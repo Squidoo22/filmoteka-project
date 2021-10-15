@@ -2,9 +2,13 @@ const basicLightbox = require('basiclightbox');
 import { getMovieById } from '../api/movies-api';
 import { renderWatchedMovies } from '../components/render-library';
 import { renderQueueMovies } from '../components/render-queue';
+import { renderTrendingMovies } from '../components/render-trending-movies';
+import { onOpenLibraryPage, onOpenHomePage } from '../components/change-home-library';
 
 const refs = {
   galleryList: document.querySelector('.gallery'),
+  libraryBtn: document.querySelector('.js-btn-library'),
+  homeBtn: document.querySelector('.js-btn-home'),
 };
 
 let watchedArr = JSON.parse(localStorage.getItem('watchedMovie')) || [];
@@ -27,18 +31,25 @@ const getMovie = async function (id) {
               <div class="img__container" style="background-image: url('https://image.tmdb.org/t/p/w400/${movie.poster_path}');">
               </div>
               <p class="modal__title">${movie.title}</p>
-              <ul class="modal__list">
-                <li class="list__item"><p class="modal__text">Vote / Votes</p></li>
-                <li class="list__item"><p class="modal__text">Popularity</p></li>
-                <li class="list__item"><p class="modal__text">Original Title</p></li>
-                <li class="list__item"><p class="modal__text">Genre</p></li>
-              </ul>
-              <ul class=" modal__list--position">
-                <li class="list__item"><p class="list__grade list__grade--flex"><span class="list__grade--color">${movie.vote_average}</span>  / <span class="list__grade--color--gray">${movie.vote_count}</span></p></li>
-                <li class="list__item"><p class="list__grade">${popularity}</p></li>
-                <li class="list__item"><p class="list__grade">${movie.original_title}</p></li>
-                <li class="list__item"><p class="list__grade">${movie.genres[0].name}</p></li>
-              </ul>
+              
+              <table class="modal__list modal__table" border="0"  cellpadding="5">
+              <tr>
+              <td class="modal__text">Vote / Votes</td>
+              <td class="list__grade list__grade--flex"><span class="list__grade--color">${movie.vote_average}</span>  / <span class="list__grade--color--gray">${movie.vote_count}</span></td>
+              </tr>
+              <tr>
+              <td class="modal__text">Popularity</td>
+              <td class="list__grade">${popularity}</td>
+              </tr>
+              <tr>
+              <td class="modal__text">Original Title</td>
+              <td class="list__grade">${movie.original_title}</td>
+              </tr>
+              <tr>
+              <td class="modal__text">Genre</td>
+              <td class="list__grade">${movie.genres[0].name}</td>
+              </tr>
+              </table>
               <p class="modal__about">about</p>
               <p class="modal__desc">${movie.overview}</p>
                 <button type="button" class="modal__button" id="watched">add to Watched</button>
@@ -63,10 +74,10 @@ const getMovie = async function (id) {
       const queueBtn = document.querySelector('#queue');
       const removeQueueBtn = document.querySelector('#queueRemove');
 
-      addToWatched(movie, watchedBtn, removeWatchedBtn);
-      removeFromWatched(movie, watchedBtn, removeWatchedBtn);
-      removeFromQueue(movie, queueBtn, removeQueueBtn);
-      addToQueue(movie, queueBtn, removeQueueBtn);
+      addToWatched(movie, watchedBtn, removeWatchedBtn, showModal);
+      removeFromWatched(movie, watchedBtn, removeWatchedBtn, showModal);
+      removeFromQueue(movie, queueBtn, removeQueueBtn, showModal);
+      addToQueue(movie, queueBtn, removeQueueBtn, showModal);
       testBtnQueue(movie, queueBtn, removeQueueBtn);
       testBtnWatch(movie, watchedBtn, removeWatchedBtn);
     }
@@ -75,39 +86,61 @@ const getMovie = async function (id) {
   }
 };
 
-const addToWatched = (movie, watchedBtn, removeWatchedBtn) => {
+const addToWatched = (movie, watchedBtn, removeWatchedBtn, showModal) => {
   watchedBtn.addEventListener('click', () => {
     watchedArr.push(movie);
     localStorage.setItem('watchedMovie', JSON.stringify(watchedArr));
     testBtnWatch(movie, watchedBtn, removeWatchedBtn);
+    showModal.close();
   });
 };
 
-const removeFromWatched = (movie, watchedBtn, removeWatchedBtn) => {
+const removeFromWatched = (movie, watchedBtn, removeWatchedBtn, showModal) => {
   removeWatchedBtn.addEventListener('click', () => {
     const modifiedArr = watchedArr.filter(item => item.id !== movie.id);
     localStorage.setItem('watchedMovie', JSON.stringify(modifiedArr));
     watchedArr = modifiedArr;
     testBtnWatch(movie, watchedBtn, removeWatchedBtn);
+    refs.libraryBtn.classList.add('header__btn--accent');
+    refs.homeBtn.classList.remove('header__btn--accent');
+    onOpenLibraryPage();
     renderWatchedMovies();
+    showModal.close();
+    if (watchedArr.length === 0) {
+      refs.libraryBtn.classList.remove('header__btn--accent');
+      refs.homeBtn.classList.add('header__btn--accent');
+      renderTrendingMovies();
+      onOpenHomePage();
+    }
   });
 };
 
-const removeFromQueue = (movie, queueBtn, removeQueueBtn) => {
+const removeFromQueue = (movie, queueBtn, removeQueueBtn, showModal) => {
   removeQueueBtn.addEventListener('click', () => {
     const modifiedArr = queueArr.filter(item => item.id !== movie.id);
     localStorage.setItem('queueMovie', JSON.stringify(modifiedArr));
     queueArr = modifiedArr;
     testBtnQueue(movie, queueBtn, removeQueueBtn);
+    refs.libraryBtn.classList.add('header__btn--accent');
+    refs.homeBtn.classList.remove('header__btn--accent');
+    onOpenLibraryPage();
     renderQueueMovies();
+    showModal.close();
+    if (queueArr.length === 0) {
+      refs.libraryBtn.classList.remove('header__btn--accent');
+      refs.homeBtn.classList.add('header__btn--accent');
+      renderTrendingMovies();
+      onOpenHomePage();
+    }
   });
 };
 
-const addToQueue = (movie, queueBtn, removeQueueBtn) => {
+const addToQueue = (movie, queueBtn, removeQueueBtn, showModal) => {
   queueBtn.addEventListener('click', () => {
     queueArr.push(movie);
     localStorage.setItem('queueMovie', JSON.stringify(queueArr));
     testBtnQueue(movie, queueBtn, removeQueueBtn);
+    showModal.close();
   });
 };
 
@@ -141,3 +174,16 @@ const testBtnQueue = (movie, queueBtn, removeQueueBtn) => {
     }
   }
 };
+
+// <ul class="modal__list">
+//   <li class="list__item"><p class="modal__text">Vote / Votes</p></li>
+//   <li class="list__item"><p class="modal__text">Popularity</p></li>
+//   <li class="list__item"><p class="modal__text">Original Title</p></li>
+//   <li class="list__item"><p class="modal__text">Genre</p></li>
+// </ul>
+// <ul class=" modal__list--position">
+//   <li class="list__item"><p class="list__grade list__grade--flex"><span class="list__grade--color">${movie.vote_average}</span>  / <span class="list__grade--color--gray">${movie.vote_count}</span></p></li>
+//   <li class="list__item"><p class="list__grade">${popularity}</p></li>
+//   <li class="list__item"><p class="list__grade">${movie.original_title}</p></li>
+//   <li class="list__item"><p class="list__grade">${movie.genres[0].name}</p></li>
+// </ul>
