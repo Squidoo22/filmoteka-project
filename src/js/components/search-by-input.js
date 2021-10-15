@@ -5,7 +5,7 @@ import changeData from './change-array-data';
 import Pagination from 'tui-pagination';
 import noData from './no-data-to-render';
 import { renderTrendingMovies } from './render-trending-movies';
-import { createPagination } from './pagination';
+import { createPagination, scrollToNewPage } from './pagination';
 
 //  поиск фильмов в строле поиска по ключевому слову
 
@@ -16,13 +16,6 @@ const refs = {
 };
 
 refs.inputField.addEventListener('input', debounce(onFilterChange, 500));
-
-const scrollToNewPage = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-  });
-};
 
 export function onFilterChange(e) {
   const inputValue = e.target.value.toLowerCase().trim();
