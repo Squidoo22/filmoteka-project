@@ -2,7 +2,8 @@
   <li class='movie__card' data-id='{{id}}'>
     <img
       class='movie__poster'
-      src='https://image.tmdb.org/t/p/w500/{{poster_path}}'
+      {{!-- src='https://image.tmdb.org/t/p/w500/{{poster_path}}' --}}
+      src='{{poster_path}}'
       alt='{{title}}'
       data-action='{{id}}'
     />
