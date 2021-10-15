@@ -13,6 +13,8 @@ const refs = {
 refs.btnQueue.addEventListener('click', renderQueueMovies);
 
 export function renderQueueMovies() {
+  refs.btnQueue.classList.add('is-active');
+  refs.btnWatched.classList.remove('is-active');
   const savedMoviesQueue = localStorage.getItem('queueMovie');
   const moviesArrayQueue = JSON.parse(savedMoviesQueue);
   if (!moviesArrayQueue || moviesArrayQueue.length === 0) {
