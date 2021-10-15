@@ -178,17 +178,17 @@
 
 .modal__list {
   position: absolute;
-  left: 456px;
+  left: 450px;
   top: 135px;
 
   @media screen and (max-width: 768px) {
-    left: 324px;
-    top: 82px;
+    left: 317px;
+    top: 90px;
   }
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
     left: 20px;
-    top: 476px;
+    top: 485px;
   }
 }
 
@@ -217,6 +217,15 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.17;
+  padding-left: 50px;
+
+  @media screen and (max-width: 768px) {
+    padding-left: 35px;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    padding-left: 12px;
+  }
 }
 
 .list__grade--flex {
@@ -248,7 +257,7 @@
 .modal__about {
   position: absolute;
   left: 456px;
-  top: 235px;
+  top: 255px;
 
   font-family: Roboto;
   font-weight: 500;
@@ -260,20 +269,20 @@
 
   @media screen and (max-width: 768px) {
     left: 324px;
-    top: 196px;
+    top: 205px;
   }
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
     left: 20px;
-    top: 590px;
+    top: 620px;
   }
 }
 
 .modal__desc {
   position: absolute;
   left: 456px;
-  top: 250px;
-  padding-right: 30px;
+  top: 275px;
+  padding-right: 20px;
   font-family: Roboto;
   font-weight: 500;
   font-size: 12px;
@@ -283,12 +292,12 @@
 
   @media screen and (max-width: 768px) {
     left: 324px;
-    top: 222px;
+    top: 230px;
   }
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
     left: 20px;
-    top: 616px;
+    top: 645px;
   }
 }
 
@@ -296,4 +305,16 @@
   display: none;
   background-color: grey;
   color: #fff;
+}
+
+.modal__table {
+  width: 40%;
+
+  @media screen and (max-width: 768px) {
+    width: 47%;
+  }
+
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    width: 89%;
+  }
 }

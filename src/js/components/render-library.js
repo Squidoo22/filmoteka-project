@@ -21,11 +21,11 @@ export function renderWatchedMovies() {
   const moviesArrayWatched = JSON.parse(savedMoviesWatched);
   if (!moviesArrayWatched || moviesArrayWatched.length === 0) {
     noData('You have not added anything here yet');
+    createPaginationInLibrary(moviesArrayWatched, refs.container);
     return;
   }
-  refs.galleryContainer.innerHTML = movieCardTpl(moviesArrayWatched);
-
-  createPaginationInLibrary(moviesArrayWatched, refs.container);
   const newData = changeData(moviesArrayWatched);
   refs.galleryContainer.innerHTML = movieCardTpl(newData);
+
+  createPaginationInLibrary(newData, refs.container);
 }

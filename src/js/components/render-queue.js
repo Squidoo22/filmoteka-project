@@ -19,12 +19,11 @@ export function renderQueueMovies() {
   const moviesArrayQueue = JSON.parse(savedMoviesQueue);
   if (!moviesArrayQueue || moviesArrayQueue.length === 0) {
     noData('You have not added anything here yet');
+    createPaginationInLibrary(moviesArrayQueue, refs.container);
     return;
   }
-  refs.galleryContainer.innerHTML = movieCardTpl(moviesArrayQueue);
-
-  createPaginationInLibrary(moviesArrayQueue, refs.container);
-
   const newData = changeData(moviesArrayQueue);
   refs.galleryContainer.innerHTML = movieCardTpl(newData);
+
+  createPaginationInLibrary(newData, refs.container);
 }
