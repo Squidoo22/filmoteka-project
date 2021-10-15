@@ -5,6 +5,7 @@ import changeData from './change-array-data';
 
 const refs = {
   btnWatched: document.getElementById('btn-watched'),
+  btnQueue: document.querySelector('#btn-queue'),
   btnLibrary: document.getElementById('btn-library'),
   galleryContainer: document.getElementById('gallery'),
   container: document.getElementById('tui-pagination-container'),
@@ -14,6 +15,8 @@ refs.btnLibrary.addEventListener('click', renderWatchedMovies);
 refs.btnWatched.addEventListener('click', renderWatchedMovies);
 
 export function renderWatchedMovies() {
+  refs.btnWatched.classList.add('is-active');
+  refs.btnQueue.classList.remove('is-active');
   const savedMoviesWatched = localStorage.getItem('watchedMovie');
   const moviesArrayWatched = JSON.parse(savedMoviesWatched);
   if (!moviesArrayWatched || moviesArrayWatched.length === 0) {
