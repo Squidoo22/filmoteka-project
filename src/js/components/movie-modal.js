@@ -24,6 +24,7 @@ refs.galleryList.addEventListener('click', e => {
 const getMovie = async function (id) {
   try {
     const movie = await getMovieById(id);
+    const overview = movie.overview.slice(0, 400);
     const popularity = String(movie.popularity).split('.')[0];
     const showModal = basicLightbox.create(
       `
@@ -51,7 +52,7 @@ const getMovie = async function (id) {
               </tr>
               </table>
               <p class="modal__about">about</p>
-              <p class="modal__desc">${movie.overview}</p>
+              <p class="modal__desc">${overview}</p>
                 <button type="button" class="modal__button" id="watched">add to Watched</button>
                 <button type="button" class="modal__button modal__button--position" id="queue">add to queue</button>
                 <button type="button" class="modal__button btn__disabled" id="watchedRemove">remove from Watched</button>
@@ -64,6 +65,13 @@ const getMovie = async function (id) {
       {
         onShow: showModal => {
           showModal.element().querySelector('.basicLightbox-bg').onclick = showModal.close;
+          window.addEventListener('keydown', e => {
+            const ESC_KEY_CODE = 'Escape';
+
+            if (e.code === ESC_KEY_CODE) {
+              showModal.close();
+            }
+          });
         },
       },
     );
@@ -160,7 +168,6 @@ const testBtnWatch = (movie, watchedBtn, removeWatchedBtn) => {
 };
 
 const testBtnQueue = (movie, queueBtn, removeQueueBtn) => {
-  // const getQueuedArr = localStorage.getItem('queueMovie');
   const storageQueueMovieArr = queueArr;
 
   for (let i = 0; i < storageQueueMovieArr.length; i += 1) {
@@ -174,16 +181,3 @@ const testBtnQueue = (movie, queueBtn, removeQueueBtn) => {
     }
   }
 };
-
-// <ul class="modal__list">
-//   <li class="list__item"><p class="modal__text">Vote / Votes</p></li>
-//   <li class="list__item"><p class="modal__text">Popularity</p></li>
-//   <li class="list__item"><p class="modal__text">Original Title</p></li>
-//   <li class="list__item"><p class="modal__text">Genre</p></li>
-// </ul>
-// <ul class=" modal__list--position">
-//   <li class="list__item"><p class="list__grade list__grade--flex"><span class="list__grade--color">${movie.vote_average}</span>  / <span class="list__grade--color--gray">${movie.vote_count}</span></p></li>
-//   <li class="list__item"><p class="list__grade">${popularity}</p></li>
-//   <li class="list__item"><p class="list__grade">${movie.original_title}</p></li>
-//   <li class="list__item"><p class="list__grade">${movie.genres[0].name}</p></li>
-// </ul>
