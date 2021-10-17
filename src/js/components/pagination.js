@@ -18,6 +18,7 @@ export const scrollToNewPage = () => {
 
 export const createPagination = () => {
   const container = document.getElementById('tui-pagination-container');
+  container.classList.remove('visually-hidden');
   getTrendingMovies()
     .then(movies => {
       const pagination = new Pagination(container, {
@@ -58,7 +59,9 @@ export const createPaginationInLibrary = (array, container) => {
 
   if (!array || array === null || array.length <= 20) {
     container.innerHTML = '';
+    container.classList.add('visually-hidden');
   } else {
+    container.classList.remove('visually-hidden');
     const myPagination = new Pagination(container, {
       totalItems: array.length,
       itemsPerPage: 20,
