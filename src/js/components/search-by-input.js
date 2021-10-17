@@ -52,6 +52,7 @@ export function onFilterChange(e) {
       }
 
       if (data.results.length === 0) {
+        refs.container.classList.add('visually-hidden');
         noData('Sorry. There is nothing for your request');
         return;
       }
