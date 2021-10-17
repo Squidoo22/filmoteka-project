@@ -9,6 +9,7 @@ const refs = {
   btnLibrary: document.getElementById('btn-library'),
   galleryContainer: document.getElementById('gallery'),
   container: document.getElementById('tui-pagination-container'),
+  gallerySection: document.querySelector('#movies'),
 };
 
 refs.btnLibrary.addEventListener('click', renderWatchedMovies);

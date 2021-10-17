@@ -1,19 +1,9 @@
-.empty-library__title {
-  padding-top: 90px;
+.empty-library__message {
+  padding-top: 120px;
   font-family: $font-family;
   font-weight: 400;
   font-size: 30px;
   line-height: 1.17;
   color: $white-text-color;
   text-align: center;
-}
-
-.empty-library__item {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
-}
-
-.empty-library__btn {
-  color: $white-text-color;
 }
