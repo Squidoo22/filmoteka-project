@@ -21,12 +21,17 @@
 
 .movie__card {
   border-radius: 5px;
+  height: 443px;
   @media screen and (max-width: $to-tablet) {
     display: flex;
     flex-direction: column;
     align-items: center;
     &:not(:last-child) {
       margin-bottom: 20px;
+    }
+
+    @media screen and (min-width: $tablet) {
+      height: 440px;
     }
   }
   @media screen and (min-width: $tablet) and (max-width: $to-desktop) {
@@ -61,8 +66,13 @@
   width: 100%;
   border-radius: 5px;
   background-color: #808080;
+  height: 402px;
   &:hover {
     cursor: zoom-in;
+  }
+
+  @media screen and (min-width: $tablet) {
+    height: 398px;
   }
 }
 
