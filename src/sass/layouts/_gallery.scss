@@ -21,6 +21,7 @@
 
 .movie__card {
   position: relative;
+  overflow: hidden;
   border-radius: 5px;
   height: 443px;
   transition: 0.5s;
@@ -64,8 +65,8 @@
     transform: scale(1.05);
   }
 
-  &:hover .film__button {
-    opacity: 1;
+  &:hover .card__overlay {
+    transform: translateY(100%);
   }
 }
 
@@ -103,58 +104,43 @@
   color: $accent-color;
 }
 
-.film__button {
+.card__overlay {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   position: absolute;
-  top: 335px;
-  opacity: 0;
-  width: 113px;
-  height: 44px;
+  left: 0;
+  bottom: 100%;
+  width: 100%;
+  height: 15%;
+  border-radius: 5px;
+  background-color: rgba(139, 138, 138, 0.5);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.film__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  width: 110px;
+  height: 30px;
   border: unset;
   background: $accent-color;
-  color: #ffffff;
+  color: $white-text-color;
+  box-shadow: 0 0 5px $accent-color;
   border-radius: 5px;
   font-family: Roboto;
   font-weight: 500;
   font-size: 11px;
   line-height: 1.33;
   cursor: pointer;
-  transition: 0.5s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-transform: uppercase;
-
-  @media screen and (min-width: $tablet) and (max-width: $to-desktop) {
-    width: 115px;
-  }
+  transition: all 0.5s ease;
 
   &:hover {
-    border: unset;
     background: #ffffff;
     color: $accent-color;
-  }
-}
-
-.film__button.watched {
-  left: 16px;
-
-  @media screen and (max-width: $to-tablet) {
-    left: 18px;
-  }
-
-  @media screen and (min-width: $tablet) and (max-width: $to-desktop) {
-    left: 21px;
-  }
-}
-
-.film__button.queue {
-  left: 145px;
-
-  @media screen and (max-width: $to-tablet) {
-    left: 149px;
-  }
-
-  @media screen and (min-width: $tablet) and (max-width: $to-desktop) {
-    left: 157px;
+    box-shadow: 0 0 5px #ffffff;
+    transition: all 0.5s ease;
   }
 }
