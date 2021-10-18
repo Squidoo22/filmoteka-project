@@ -20,6 +20,7 @@
 }
 
 .movie__card {
+  position: relative;
   border-radius: 5px;
   height: 443px;
   transition: 0.5s;
@@ -62,6 +63,10 @@
   &:hover {
     transform: scale(1.05);
   }
+
+  &:hover .film__button {
+    opacity: 1;
+  }
 }
 
 .movie__poster {
@@ -69,7 +74,7 @@
   border-radius: 5px;
   background-color: #808080;
   height: 402px;
-  box-shadow: 0em 0em 1em rgba(0, 0, 0, 0.2);
+  box-shadow: 0em 0em 1em rgba(0, 0, 0, 0.3);
   &:hover {
     cursor: pointer;
   }
@@ -96,4 +101,60 @@
 
 .movie__information {
   color: $accent-color;
+}
+
+.film__button {
+  position: absolute;
+  top: 335px;
+  opacity: 0;
+  width: 113px;
+  height: 44px;
+  border: unset;
+  background: $accent-color;
+  color: #ffffff;
+  border-radius: 5px;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 1.33;
+  cursor: pointer;
+  transition: 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+
+  @media screen and (min-width: $tablet) and (max-width: $to-desktop) {
+    width: 115px;
+  }
+
+  &:hover {
+    border: unset;
+    background: #ffffff;
+    color: $accent-color;
+  }
+}
+
+.film__button.watched {
+  left: 16px;
+
+  @media screen and (max-width: $to-tablet) {
+    left: 18px;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: $to-desktop) {
+    left: 21px;
+  }
+}
+
+.film__button.queue {
+  left: 145px;
+
+  @media screen and (max-width: $to-tablet) {
+    left: 149px;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: $to-desktop) {
+    left: 157px;
+  }
 }
