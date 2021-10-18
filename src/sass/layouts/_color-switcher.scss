@@ -1,11 +1,9 @@
 body.light-theme {
   background-color: #fff;
-  color: $primary-text-color;
 }
 
 body.dark-theme {
   background-color: #333333;
-  color: $white-text-color;
 
   & .tui-pagination .tui-page-btn,
   .tui-prev,
@@ -135,6 +133,5 @@ body.dark-theme {
 }
 
 .dark-theme {
-  color: lightgrey;
   background-color: #222;
 }
