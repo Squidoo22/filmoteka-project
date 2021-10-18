@@ -24,7 +24,6 @@ refs.galleryList.addEventListener('click', e => {
 const getMovie = async function (id) {
   try {
     const movie = await getMovieById(id);
-    const overview = movie.overview.slice(0, 400);
     const popularity = String(movie.popularity).split('.')[0];
     const showModal = basicLightbox.create(
       `
@@ -52,7 +51,7 @@ const getMovie = async function (id) {
               </tr>
               </table>
               <p class="modal__about">about</p>
-              <p class="modal__desc">${overview}</p>
+              <p class="modal__desc">${movie.overview}</p>
                 <button type="button" class="modal__button" id="watched">add to Watched</button>
                 <button type="button" class="modal__button modal__button--position" id="queue">add to queue</button>
                 <button type="button" class="modal__button btn__disabled" id="watchedRemove">remove from Watched</button>

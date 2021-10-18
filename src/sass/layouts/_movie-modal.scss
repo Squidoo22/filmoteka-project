@@ -287,6 +287,8 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 1.67;
+  overflow: auto;
+  height: 140px;
 
   color: #000000;
 
@@ -299,6 +301,17 @@
     left: 20px;
     top: 645px;
   }
+}
+
+.modal__desc::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  background-color: #ffffff;
+}
+
+.modal__desc::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: $accent-color;
 }
 
 .btn__disabled {
