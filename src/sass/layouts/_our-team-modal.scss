@@ -164,3 +164,12 @@
   overflow: hidden;
   border-radius: 50%;
 }
+
+.social-media {
+  display: flex;
+}
+
+.social-media a {
+  margin-right: 5px;
+  margin-left: 5px;
+}

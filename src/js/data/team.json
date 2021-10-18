@@ -3,42 +3,49 @@
     "fullName": "Dmytro",
     "photoUrl": "dima",
     "githubUrl": "https://github.com/squidoo22",
-    "description": "Dima was engaged in the development of the footer, as well as this beautiful modal window."
+    "description": "Dima was engaged in the development of the footer, as well as this beautiful modal window.",
+    "linkedinUrl": "https://www.linkedin.com/in/dmitry-kolotilin/"
   },
   {
     "fullName": "Hanna",
     "photoUrl": "hanna",
     "githubUrl": "https://github.com/Mandzirokha",
-    "description": "Anya, our beautiful Scrum master, held daily meetings and developed a header and a library."
+    "description": "Anya, our beautiful Scrum master, held daily meetings and developed a header and a library.",
+    "linkedinUrl": "https://www.linkedin.com/in/hanna-mandzirokha-08a9b5223/"
   },
   {
     "fullName": "Alisa",
     "photoUrl": "alisa",
     "githubUrl": "https://github.com/Alisa-Bogatyryova",
-    "description": "Alisa was involved in the implementation of the functions of rendering the watched films and films in the queue."
+    "description": "Alisa was involved in the implementation of the functions of rendering the watched films and films in the queue.",
+    "linkedinUrl": "https://www.linkedin.com/in/alisa-bogatyryova-8257ab211"
   },
   {
     "fullName": "Andriy",
     "photoUrl": "andriy",
     "githubUrl": "https://github.com/Andre-ft",
-    "description": "Andriy implemented the function of searching films by keyword."
+    "description": "Andriy implemented the function of searching films by keyword.",
+    "linkedinUrl": "https://www.linkedin.com/in/and-rej-full-stack"
   },
   {
     "fullName": "Mikhaylo",
     "photoUrl": "misha",
     "githubUrl": "https://github.com/Mikhaylo-Khokhlov",
-    "description": "Worked on the development of a modal window and functionality for adding films by the user."
+    "description": "Worked on the development of a modal window and functionality for adding films by the user.",
+    "linkedinUrl": "https://www.linkedin.com/in/mikhaylo-khokhlov/"
   },
   {
     "fullName": "Vika",
     "photoUrl": "vika",
     "githubUrl": "https://github.com/vixxxyg",
-    "description": "Vika was engaged in the layout of the film card and render."
+    "description": "Vika was engaged in the layout of the film card and render.",
+    "linkedinUrl": "https://www.linkedin.com/in/виктория-гиленко-49a794223/"
   },
   {
     "fullName": "Taras",
     "photoUrl": "taras",
     "githubUrl": "https://github.com/Taras-Kolomiiets",
-    "description": "Taras was engaged in setting up all calls to the api and activities related to pagination"
+    "description": "Taras was engaged in setting up all calls to the api and activities related to pagination",
+    "linkedinUrl": "https://www.linkedin.com/in/dmitry-kolotilin/"
   }
 ]

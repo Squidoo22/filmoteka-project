@@ -14,9 +14,14 @@
         </div>
         <h2 class='name-title'>{{fullName}}</h2>
         <p class='description'>{{description}}</p>
-        <a href='{{githubUrl}}' target='_blank' rel='noopener noreferrer'>
-          <img width='40px' src='github.png' alt='github-icon' />
-        </a>
+        <div class='social-media'>
+          <a href='{{githubUrl}}' target='_blank' rel='noopener noreferrer'>
+            <img width='40px' src='github.png' alt='github-icon' />
+          </a>
+          <a href='{{linkedinUrl}}' target='_blank' rel='noopener noreferrer'>
+            <img width='40px' src='link.png' alt='linkedin-icon' />
+          </a>
+        </div>
       </div>
     </div>
   {{/each}}
