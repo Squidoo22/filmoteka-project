@@ -2,18 +2,16 @@
 
 html {
   scroll-behavior: smooth;
-  scrollbar-color: $accent-color;
-  scrollbar-width: thin;
 }
 
 html::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
   height: 4px;
   background-color: #ffffff;
 }
 
 html::-webkit-scrollbar-thumb {
-  border-radius: 2px;
+  border-radius: 4px;
   background-color: $accent-color;
 }
 
