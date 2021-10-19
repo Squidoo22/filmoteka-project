@@ -17,15 +17,21 @@
       <button
         type='button'
         class='film__button watched'
-        id='watched-card'
+        id='watched-btn'
         data-action='add-to-watched'
       >add to watched</button>
+      <button type='button' class='film__button queue' id='queue-btn' data-action='add-to-queue'>add
+        to queue</button>
       <button
         type='button'
-        class='film__button queue'
-        id='queue-card'
-        data-action='add-to-queue'
-      >add to queue</button>
+        class='film__button remove__watched btn__disabled'
+        id='watchedRemove-btn'
+      >remove from Watched</button>
+      <button
+        type='button'
+        class='film__button remove__queue btn__disabled'
+        id='queueRemove-btn'
+      >remove from queue</button>
     </div>
   </li>
 {{/each}}

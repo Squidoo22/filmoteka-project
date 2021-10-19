@@ -6,6 +6,8 @@ import './components/render-library';
 import './components/render-queue';
 import './components/change-home-library';
 import './components/fixed-header';
+import './components/card-buttons';
+
 import { renderTrendingMovies } from './components/render-trending-movies';
 import { getGenres, getMovieById, getSearchedMovies, getTrendingMovies } from './api/movies-api';
 import { createPagination } from './components/pagination';
@@ -21,10 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
   createPagination();
 });
 
-window.onload = function() {
-    let preloader = document.getElementById('preloader');
-    preloader.classList.add('hide-preloader');
-    setInterval(function() {
-          preloader.classList.add('preloader-hidden');
-    }, 1500);
-}
+window.onload = function () {
+  let preloader = document.getElementById('preloader');
+  preloader.classList.add('hide-preloader');
+  setInterval(function () {
+    preloader.classList.add('preloader-hidden');
+  }, 1500);
+};
