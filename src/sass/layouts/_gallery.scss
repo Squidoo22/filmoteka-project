@@ -23,7 +23,7 @@
   position: relative;
   overflow: hidden;
   border-radius: 5px;
-  height: 443px;
+  height: 460px;
   transition: 0.5s;
   @media screen and (max-width: $to-tablet) {
     display: flex;
@@ -34,7 +34,7 @@
     }
 
     @media screen and (min-width: $tablet) {
-      height: 440px;
+      height: 463px;
     }
   }
 
