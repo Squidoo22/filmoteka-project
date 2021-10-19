@@ -1,0 +1,16 @@
+.scroll-to-top.show {
+  position: fixed;
+  color: #fff;
+  background-color: #286090;
+  right: 20px;
+  bottom: 50px;
+  padding: 4px 10px;
+  font-size: 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.scroll-to-top:hover {
+  background-color: $accent-color;
+}
