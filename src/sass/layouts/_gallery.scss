@@ -158,3 +158,9 @@
     left: 157px;
   }
 }
+
+.btn__disabled {
+  display: none;
+  background-color: grey;
+  color: #fff;
+}
