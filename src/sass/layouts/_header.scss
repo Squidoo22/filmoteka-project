@@ -7,6 +7,15 @@
   background-repeat: no-repeat;
 }
 
+.header--fixed {
+  position: fixed;
+  left: 0;
+  top: 0;
+  margin-top: -44px;
+  height: 164px;
+  z-index: 100;
+}
+
 // Navigation
 .header__nav-container {
   display: flex;
@@ -91,3 +100,5 @@
   justify-content: center;
   margin-top: 40px;
 }
+
+//Fixed header
