@@ -105,10 +105,16 @@ const removeFromQueue = (movie, queueBtn, removeQueueBtn) => {
 
 const testBtnWatch = (movie, watchedBtn, removeWatchedBtn) => {
   const storageMovieArr = watchedArr;
-
-  for (let i = 0; i < storageMovieArr.length; i += 1) {
    let el = document.getElementById(movie.id);
 
+  if (storageMovieArr.length === 0) {
+      el.querySelector('#watched-btn').classList.remove('btn__disabled');
+      el.querySelector('#watchedRemove-btn').classList.add('btn__disabled');
+
+      return;
+  }
+
+  for (let i = 0; i < storageMovieArr.length; i += 1) {
     if (storageMovieArr[i].id === movie.id) {
       el.querySelector('#watched-btn').classList.add('btn__disabled');
       el.querySelector('#watchedRemove-btn').classList.remove('btn__disabled');
@@ -122,10 +128,16 @@ const testBtnWatch = (movie, watchedBtn, removeWatchedBtn) => {
 
 const testBtnQueue = (movie, queueBtn, removeQueueBtn) => {
   const storageQueueMovieArr = queueArr;
-
-  for (let i = 0; i < storageQueueMovieArr.length; i += 1) {
      let el = document.getElementById(movie.id);
 
+  if (storageQueueMovieArr.length === 0) {
+      el.querySelector('#queue-btn').classList.remove('btn__disabled');
+      el.querySelector('#queueRemove-btn').classList.add('btn__disabled');
+
+      return;
+  }
+
+  for (let i = 0; i < storageQueueMovieArr.length; i += 1) {
     if (storageQueueMovieArr[i].id === movie.id) {
       el.querySelector('#queue-btn').classList.add('btn__disabled');
       el.querySelector('#queueRemove-btn').classList.remove('btn__disabled');
