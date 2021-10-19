@@ -21,13 +21,13 @@
   background: $white-text-color;
   padding: 15px;
   display: inline-block;
-  height: 100vh;
+  height: 90vh;
   border-radius: 4px;
 
   overflow-y: auto;
 
   @media screen and (max-width: 479px) {
-    width: 300px;
+    width: 320px;
   }
 
   @media screen and (min-width: 480px) {
@@ -88,7 +88,7 @@
   background-repeat: no-repeat;
 
   @media screen and (max-width: 479px) {
-    right: calc(50% - 155px);
+    right: calc(50% - 160px);
   }
   @media screen and (min-width: 480px) {
     right: calc(50% - 180px);

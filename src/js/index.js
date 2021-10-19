@@ -5,8 +5,8 @@ import './components/movie-modal';
 import './components/render-library';
 import './components/render-queue';
 import './components/change-home-library';
-import './components/fixed-header';
 import './components/card-buttons';
+import './components/to-top-btn';
 
 import { renderTrendingMovies } from './components/render-trending-movies';
 import { getGenres, getMovieById, getSearchedMovies, getTrendingMovies } from './api/movies-api';
