@@ -76,6 +76,8 @@ const getMovie = async function (id) {
     );
     showModal.show();
     if (showModal.show() === true) {
+      watchedArr = JSON.parse(localStorage.getItem('watchedMovie')) || [];
+      queueArr = JSON.parse(localStorage.getItem('queueMovie')) || [];
       const watchedBtn = document.querySelector('#watched');
       const removeWatchedBtn = document.querySelector('#watchedRemove');
       const queueBtn = document.querySelector('#queue');

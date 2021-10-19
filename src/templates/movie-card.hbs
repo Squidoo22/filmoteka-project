@@ -1,5 +1,5 @@
 {{#each this}}
-  <li class='movie__card' data-id='{{id}}'>
+  <li class='movie__card' data-id='{{id}}' id='{{id}}'>
     <img
       class='movie__poster'
       {{!-- src='https://image.tmdb.org/t/p/w500/{{poster_path}}' --}}
@@ -14,9 +14,24 @@
       {{release_date}}
     </p>
     <div class='card__overlay'>
-      <button type='button' class='film__button watched' id='watched' data-action='add-to-watched'>add to
-        watched</button>
-      <button type='button' class='film__button queue' id='queue' data-action='add-to-queue'>add to queue</button>
+      <button
+        type='button'
+        class='film__button watched'
+        id='watched-btn'
+        data-action='add-to-watched'
+      >add to watched</button>
+       <button
+        type='button'
+        class='film__button remove__watched btn__disabled'
+        id='watchedRemove-btn'
+      >remove from Watched</button>
+      <button type='button' class='film__button queue' id='queue-btn' data-action='add-to-queue'>add
+        to queue</button>
+      <button
+        type='button'
+        class='film__button remove__queue btn__disabled'
+        id='queueRemove-btn'
+      >remove from queue</button>
     </div>
   </li>
 {{/each}}
