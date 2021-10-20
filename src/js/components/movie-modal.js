@@ -104,7 +104,6 @@ const getMovie = async function (id) {
 };
 
 const closeModal = e => {
-  console.log(e.target.className);
   if (e.target.className === 'basicLightbox-bg' || 'basicLightbox') {
     refs.bodyRef.classList.remove('modal-open');
   }
