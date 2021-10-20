@@ -14,6 +14,10 @@
   will-change: opacity;
 }
 
+.modal-open {
+  overflow: hidden;
+}
+
 .basicLightbox--visible {
   opacity: 1;
 }
