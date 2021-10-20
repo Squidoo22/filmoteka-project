@@ -1,5 +1,4 @@
 const scrollTopBtn = document.querySelector('.scroll-to-top');
-console.log(scrollTopBtn)
 window.addEventListener('scroll', () => {
   const { scrollTop, clientHeight } = document.documentElement;
   if (scrollTop > clientHeight) {

@@ -9,6 +9,8 @@ const refs = {
   galleryList: document.querySelector('.gallery'),
   libraryBtn: document.querySelector('.js-btn-library'),
   homeBtn: document.querySelector('.js-btn-home'),
+  bodyRef: document.querySelector('body'),
+  header: document.querySelector('.header'),
 };
 
 let watchedArr = JSON.parse(localStorage.getItem('watchedMovie')) || [];
@@ -69,6 +71,7 @@ const getMovie = async function (id) {
 
             if (e.code === ESC_KEY_CODE) {
               showModal.close();
+              refs.bodyRef.classList.remove('modal-open');
             }
           });
         },
@@ -76,6 +79,7 @@ const getMovie = async function (id) {
     );
     showModal.show();
     if (showModal.show() === true) {
+      refs.bodyRef.classList.add('modal-open');
       watchedArr = JSON.parse(localStorage.getItem('watchedMovie')) || [];
       queueArr = JSON.parse(localStorage.getItem('queueMovie')) || [];
       const watchedBtn = document.querySelector('#watched');
@@ -89,6 +93,14 @@ const getMovie = async function (id) {
       addToQueue(movie, queueBtn, removeQueueBtn, showModal);
       testBtnQueue(movie, queueBtn, removeQueueBtn);
       testBtnWatch(movie, watchedBtn, removeWatchedBtn);
+
+      const lightBoxBg = document.querySelector('.basicLightbox ');
+
+      lightBoxBg.addEventListener('click', function (e) {
+        if (e.target.className !== 'basicLightbox') return;
+
+        refs.bodyRef.classList.remove('modal-open');
+      });
     }
   } catch (error) {
     console.log(error);
@@ -100,7 +112,6 @@ const addToWatched = (movie, watchedBtn, removeWatchedBtn, showModal) => {
     watchedArr.push(movie);
     localStorage.setItem('watchedMovie', JSON.stringify(watchedArr));
     testBtnWatch(movie, watchedBtn, removeWatchedBtn);
-    showModal.close();
   });
 };
 
@@ -110,17 +121,14 @@ const removeFromWatched = (movie, watchedBtn, removeWatchedBtn, showModal) => {
     localStorage.setItem('watchedMovie', JSON.stringify(modifiedArr));
     watchedArr = modifiedArr;
     testBtnWatch(movie, watchedBtn, removeWatchedBtn);
-    refs.libraryBtn.classList.add('header__btn--accent');
-    refs.homeBtn.classList.remove('header__btn--accent');
-    onOpenLibraryPage();
-    renderWatchedMovies();
-    showModal.close();
-    if (watchedArr.length === 0) {
-      refs.libraryBtn.classList.remove('header__btn--accent');
-      refs.homeBtn.classList.add('header__btn--accent');
-      renderTrendingMovies();
-      onOpenHomePage();
+
+    if (refs.header.classList.contains('header__library-bg')) {
+      refs.libraryBtn.classList.add('header__btn--accent');
+      refs.homeBtn.classList.remove('header__btn--accent');
+      onOpenLibraryPage();
     }
+
+    renderWatchedMovies();
   });
 };
 
@@ -130,17 +138,15 @@ const removeFromQueue = (movie, queueBtn, removeQueueBtn, showModal) => {
     localStorage.setItem('queueMovie', JSON.stringify(modifiedArr));
     queueArr = modifiedArr;
     testBtnQueue(movie, queueBtn, removeQueueBtn);
-    refs.libraryBtn.classList.add('header__btn--accent');
-    refs.homeBtn.classList.remove('header__btn--accent');
-    onOpenLibraryPage();
-    renderQueueMovies();
-    showModal.close();
-    if (queueArr.length === 0) {
-      refs.libraryBtn.classList.remove('header__btn--accent');
-      refs.homeBtn.classList.add('header__btn--accent');
-      renderTrendingMovies();
-      onOpenHomePage();
+
+    if (refs.header.classList.contains('header__library-bg')) {
+      refs.libraryBtn.classList.add('header__btn--accent');
+      refs.homeBtn.classList.remove('header__btn--accent');
+      onOpenLibraryPage();
+      renderQueueMovies();
     }
+
+    renderQueueMovies();
   });
 };
 
@@ -149,7 +155,6 @@ const addToQueue = (movie, queueBtn, removeQueueBtn, showModal) => {
     queueArr.push(movie);
     localStorage.setItem('queueMovie', JSON.stringify(queueArr));
     testBtnQueue(movie, queueBtn, removeQueueBtn);
-    showModal.close();
   });
 };
 
