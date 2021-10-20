@@ -107,7 +107,7 @@ const removeFromQueue = (movie, queueBtn, removeQueueBtn) => {
 };
 
 const testBtnWatch = (movie, watchedBtn, removeWatchedBtn) => {
-  const storageMovieArr = watchedArr;
+  const storageMovieArr = JSON.parse(localStorage.getItem('watchedMovie')) || [];
   let el = document.getElementById(movie.id);
 
   if (storageMovieArr.length === 0) {
@@ -130,7 +130,7 @@ const testBtnWatch = (movie, watchedBtn, removeWatchedBtn) => {
 };
 
 const testBtnQueue = (movie, queueBtn, removeQueueBtn) => {
-  const storageQueueMovieArr = queueArr;
+  const storageQueueMovieArr = JSON.parse(localStorage.getItem('queueMovie')) || [];
   let el = document.getElementById(movie.id);
 
   if (storageQueueMovieArr.length === 0) {
