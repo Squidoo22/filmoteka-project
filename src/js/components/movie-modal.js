@@ -87,6 +87,8 @@ const getMovie = async function (id) {
       const queueBtn = document.querySelector('#queue');
       const removeQueueBtn = document.querySelector('#queueRemove');
 
+      console.log(removeWatchedBtn);
+
       addToWatched(movie, watchedBtn, removeWatchedBtn, showModal);
       removeFromWatched(movie, watchedBtn, removeWatchedBtn, showModal);
       removeFromQueue(movie, queueBtn, removeQueueBtn, showModal);
@@ -126,9 +128,11 @@ const removeFromWatched = (movie, watchedBtn, removeWatchedBtn, showModal) => {
       refs.libraryBtn.classList.add('header__btn--accent');
       refs.homeBtn.classList.remove('header__btn--accent');
       onOpenLibraryPage();
+      renderWatchedMovies();
     }
-
-    renderWatchedMovies();
+    // if (watchedArr.length === 0) {
+    //   renderWatchedMovies();
+    // }
   });
 };
 
@@ -145,8 +149,9 @@ const removeFromQueue = (movie, queueBtn, removeQueueBtn, showModal) => {
       onOpenLibraryPage();
       renderQueueMovies();
     }
-
-    renderQueueMovies();
+    // if (queueArr.length === 0) {
+    //   renderQueueMovies();
+    // }
   });
 };
 
@@ -160,6 +165,13 @@ const addToQueue = (movie, queueBtn, removeQueueBtn, showModal) => {
 
 const testBtnWatch = (movie, watchedBtn, removeWatchedBtn) => {
   const storageMovieArr = watchedArr;
+
+  if (storageMovieArr.length === 0) {
+    watchedBtn.classList.remove('btn__disabled');
+    removeWatchedBtn.classList.add('btn__disabled');
+
+    return;
+  }
 
   for (let i = 0; i < storageMovieArr.length; i += 1) {
     if (storageMovieArr[i].id === movie.id) {
@@ -175,6 +187,13 @@ const testBtnWatch = (movie, watchedBtn, removeWatchedBtn) => {
 
 const testBtnQueue = (movie, queueBtn, removeQueueBtn) => {
   const storageQueueMovieArr = queueArr;
+
+  if (storageQueueMovieArr.length === 0) {
+    queueBtn.classList.remove('btn__disabled');
+    removeQueueBtn.classList.add('btn__disabled');
+
+    return;
+  }
 
   for (let i = 0; i < storageQueueMovieArr.length; i += 1) {
     if (storageQueueMovieArr[i].id === movie.id) {
