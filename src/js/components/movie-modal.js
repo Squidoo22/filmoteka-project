@@ -96,14 +96,16 @@ const getMovie = async function (id) {
 
       const lightBoxBg = document.querySelector('.basicLightbox ');
 
-      lightBoxBg.addEventListener('click', function (e) {
-        if (e.target.className !== 'basicLightbox') return;
-
-        refs.bodyRef.classList.remove('modal-open');
-      });
+      lightBoxBg.addEventListener('click', closeModal);
     }
   } catch (error) {
     console.log(error);
+  }
+};
+
+const closeModal = e => {
+  if (e.target.className === 'basicLightbox-bg' || 'basicLightbox') {
+    refs.bodyRef.classList.remove('modal-open');
   }
 };
 
