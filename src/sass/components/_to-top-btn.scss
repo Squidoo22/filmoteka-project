@@ -1,5 +1,6 @@
 .scroll-to-top.show {
   position: fixed;
+  display: block;
   color: #fff;
   background-color: #286090;
   right: 20px;
@@ -9,6 +10,10 @@
   border-radius: 20px;
   cursor: pointer;
   text-align: center;
+}
+
+.scroll-to-top {
+  display: none;
 }
 
 .scroll-to-top:hover {
