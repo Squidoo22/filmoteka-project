@@ -87,8 +87,6 @@ const getMovie = async function (id) {
       const queueBtn = document.querySelector('#queue');
       const removeQueueBtn = document.querySelector('#queueRemove');
 
-      console.log(removeWatchedBtn);
-
       addToWatched(movie, watchedBtn, removeWatchedBtn, showModal);
       removeFromWatched(movie, watchedBtn, removeWatchedBtn, showModal);
       removeFromQueue(movie, queueBtn, removeQueueBtn, showModal);
@@ -130,9 +128,6 @@ const removeFromWatched = (movie, watchedBtn, removeWatchedBtn, showModal) => {
       onOpenLibraryPage();
       renderWatchedMovies();
     }
-    // if (watchedArr.length === 0) {
-    //   renderWatchedMovies();
-    // }
   });
 };
 
@@ -149,9 +144,6 @@ const removeFromQueue = (movie, queueBtn, removeQueueBtn, showModal) => {
       onOpenLibraryPage();
       renderQueueMovies();
     }
-    // if (queueArr.length === 0) {
-    //   renderQueueMovies();
-    // }
   });
 };
 
